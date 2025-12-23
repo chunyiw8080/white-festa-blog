@@ -13,17 +13,9 @@ export const sponsorConfig: SponsorConfig = {
 	// 赞助方式列表
 	methods: [
 		{
-			name: "支付宝",
-			icon: "fa6-brands:alipay",
-			qrCode: "/assets/images/sponsor/alipay.png", // 收款码图片路径（需要放在 public 目录下）
-			link: "",
-			description: "使用 支付宝 扫码赞助",
-			enabled: true,
-		},
-		{
 			name: "微信",
 			icon: "fa6-brands:weixin",
-			qrCode: "/assets/images/sponsor/wechat.png", // 收款码图片路径
+			qrCode: "/assets/images/sponsor/wechat.jpg", // 收款码图片路径
 			link: "",
 			description: "使用 微信 扫码赞助",
 			enabled: true,
