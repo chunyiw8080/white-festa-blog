@@ -45,8 +45,8 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 			{
 				name: "Mermaid Festa Vol.1",
 				artist: "μ's",
-				url: "/assets/music/Mermaid Festa Vol.1.flac",
-				cover: "/assets/music/cover/mermaid festa vol 1.webp",
+				url: "/assets/music/Snow halation.mp3",
+				cover: "/assets/music/cover/Snow_halation.webp",
 				lrc: "", // 歌词内容，支持 LRC 格式
 			},
 		],
