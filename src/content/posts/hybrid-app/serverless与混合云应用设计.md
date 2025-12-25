@@ -1,7 +1,7 @@
 ---
 title: 基于Cloudflare边缘计算与Azure MySQL的混合云CD-KEY架构实践
 published: 2025-10-12
-pinned: false
+pinned: true
 description: 一个尝试使用CloudFlare与Azure的混合云架构设计
 tags: [CloudFlare, Azure, Node]
 category: Web架构
@@ -199,7 +199,9 @@ function json(body, status = 200) {
 ## 2. 部署和配置Azure Database for MySQL
 这部分没什么好说的，只需要登录Azure部署资源，其实只要能够被访问到，任何云厂商的MySQL数据库都一样。
 唯一注意的点是需要将安全组设置为0.0.0.0（在测试或实验数据库可以），或者特定把CloudFlare IP地址加入为允许连接的IP（生产级实践）
-:::tip 安全组设置为0.0.0.0建议只在测试、实验环境下；敏感、生产环境中请手动下载 [Cloudflare IP地址范围](https://www.cloudflare.com/ips-v4/) :::
+:::tip
+安全组设置为0.0.0.0建议只在测试、实验环境下；敏感、生产环境中请手动下载 [Cloudflare IP地址范围](https://www.cloudflare.com/ips-v4/) 
+:::
 ### 创建数据库、表和索引
 ```sql
 -- 创建数据库
@@ -214,7 +216,7 @@ CREATE UNIQUE INDEX idx_code ON cdkeys(code);
 -- 创建HyperDrive专属用户
 CREATE USER 'hyperdrive_user'@'%' IDENTIFIED BY 'your_strong_password';
 -- 授予指定表权限
-GRANT SELECT, INSERT, UPDATE ON cdkey_db.cdkeys TO 'hyperdrive_user'@'%';
+GRANT SELECT, INSERT, UPDATE ON cdkey.cdkeys TO 'hyperdrive_user'@'%';
 -- 刷新权限
 FLUSH PRIVILEGES;
 ```
@@ -313,6 +315,7 @@ await env.CACHE.put(code, "1", {expirationTtl: 86400})
 - 一旦使用就永久失效
 - 没有状态回退
 - 按批次发放和关闭
+
 这个三个特点完美的补充了Bloom Filter无法删除元素的缺点
 对于误判，由于根本上存在一个MySQL DB兜底，因此偶尔发生的误判不是严重问题，因为：
 - 当误判一个失效CDKEY为有效时 - 查询一次数据库 - 发现已失效 - 返回兑换失败
