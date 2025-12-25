@@ -33,12 +33,12 @@ Deployment 为 Pod 和 ReplicaSet 提供声明式的更新能力。
 
 #  Depolyment 滚动更新与版本回退
 1. 滚动更新允许通过使用新的实例逐步更新 Pod 实例，实现零停机的 Deployment 更新。 新的 Pod 将被调度到具有可用资源的节点上。
-2. <font style="color:rgb(34, 34, 34);">与应用程序规模扩缩类似，如果 Deployment 的访问是公开的，Service 在更新期间仅将流量负载均衡到可用的 Pod。可用的 Pod 是指对应用的用户可用的实例。</font>
-3. <font style="color:rgb(34, 34, 34);">滚动更新允许以下操作：</font>
-    1. <font style="color:rgb(34, 34, 34);">将应用程序从一个环境升级到另一个环境（通过容器镜像更新）</font>
-    2. <font style="color:rgb(34, 34, 34);">回滚到以前的版本</font>
-    3. <font style="color:rgb(34, 34, 34);">持续集成和持续交付应用程序，无需停机</font>
-4. <font style="color:rgb(34, 34, 34);">示例</font>
+2. 与应用程序规模扩缩类似，如果 Deployment 的访问是公开的，Service 在更新期间仅将流量负载均衡到可用的 Pod。可用的 Pod 是指对应用的用户可用的实例。
+3. 滚动更新允许以下操作：
+    1. 将应用程序从一个环境升级到另一个环境（通过容器镜像更新）
+    2. 回滚到以前的版本
+    3. 持续集成和持续交付应用程序，无需停机
+4. 示例
 
 ```yaml
 apiVersion: apps/v1
@@ -81,7 +81,7 @@ kubectl rollout history deployment DEPLOYMENT_NAME
 
 输出类似于
 
-```plain
+```txt
 deployment.apps/rolling-update-demo 
 REVISION  CHANGE-CAUSE
 1         <none>

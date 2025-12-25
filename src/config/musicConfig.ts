@@ -43,7 +43,7 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	local: {
 		playlist: [
 			{
-				name: "Mermaid Festa Vol.1",
+				name: "Snow Halation",
 				artist: "μ's",
 				url: "/assets/music/Snow halation.mp3",
 				cover: "/assets/music/cover/Snow_halation.webp",

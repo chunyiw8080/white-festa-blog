@@ -312,9 +312,9 @@ spec:
 ```
 
 # 拓扑分布约束
-拓扑分布约束（Topology Spread Constraints）可以用<font style="color:rgb(34, 34, 34);">来控制 </font>[<font style="color:rgb(0, 0, 0);">Pod</font>](https://kubernetes.io/zh-cn/docs/concepts/workloads/pods/)<font style="color:rgb(34, 34, 34);"> 在集群内故障域之间的分布， 例如区域（Region）、可用区（Zone）、节点和其他用户自定义拓扑域。 这样做有助于实现高可用并提升资源利用率。</font>
+拓扑分布约束（Topology Spread Constraints）可以用来控制 [Pod](https://kubernetes.io/zh-cn/docs/concepts/workloads/pods/) 在集群内故障域之间的分布， 例如区域（Region）、可用区（Zone）、节点和其他用户自定义拓扑域。 这样做有助于实现高可用并提升资源利用率。
 
-## <font style="color:rgb(34, 34, 34);">示例</font>
+## 示例
 ```yaml
 apiVersion: v1
 kind: Pod
