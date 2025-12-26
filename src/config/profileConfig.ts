@@ -6,7 +6,7 @@ export const profileConfig: ProfileConfig = {
 	// 名字
 	name: "常世常暗",
 	// 个人签名
-	bio: "",
+	bio: "If you shout loud enough, you'll be the one.",
 
 	// 链接配置
 	// 已经预装的图标集：fa6-brands，fa6-regular，fa6-solid，material-symbols，simple-icons

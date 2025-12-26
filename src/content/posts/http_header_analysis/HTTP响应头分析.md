@@ -1,6 +1,6 @@
 ---
 title: 以真实世界的网络故障为例，分析如何通过HTTP response header定位故障域
-published: 2025-04-09
+published: 2025-11-18
 pinned: true
 description: 本文以澳洲头部零售网站 JB-HIFI 的真实宕机事件为样本，深度解析其 HTTP 响应头。你将看到，无需内部日志，仅凭客户端可见信息，即可完成从边缘到源站的全链路故障域推断。
 tags: [HTTP, CloudFlare, CDN, 网络故障]

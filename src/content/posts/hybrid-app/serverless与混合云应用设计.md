@@ -1,6 +1,6 @@
 ---
 title: 基于Cloudflare边缘计算与Azure MySQL的混合云CD-KEY架构实践
-published: 2025-10-12
+published: 2025-11-30
 pinned: true
 description: 一个尝试使用CloudFlare与Azure的混合云架构设计
 tags: [CloudFlare, Azure, Node]
