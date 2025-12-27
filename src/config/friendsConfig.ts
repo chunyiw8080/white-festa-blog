@@ -10,7 +10,16 @@ export const friendsConfig: FriendLink[] = [
 		desc: "飞萤之火自无梦的长夜亮起，绽放在终竟的明天。",
 		siteurl: "https://blog.cuteleaf.cn",
 		tags: ["Blog"],
-		weight: 10, // 权重，数字越大排序越靠前
+		weight: 20, // 权重，数字越大排序越靠前
+		enabled: true, // 是否启用
+	},
+	{
+		title: "运维开发绿皮书",
+		imgurl: "https://www.geekery.cn/logo.svg",
+		desc: "飞放置我的笔记、搜集、摘录、实践，保持好奇心。看文需谨慎，后果很严重!",
+		siteurl: "https://www.geekery.cn/",
+		tags: ["Blog"],
+		weight: 19, // 权重，数字越大排序越靠前
 		enabled: true, // 是否启用
 	},
 ];

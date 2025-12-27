@@ -14,26 +14,21 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		LinkPreset.Archive,
 	];
 
-	// 支持自定义导航栏链接,并且支持多级菜单
+	//支持自定义导航栏链接,并且支持多级菜单
 	// links.push({
 	// 	name: "链接",
 	// 	url: "/links/",
 	// 	icon: "material-symbols:link",
 	// 	children: [
 	// 		{
-	// 			name: "GitHub",
-	// 			url: "https://github.com/CuteLeaf/Firefly",
+	// 			name: "🚇开往",
+	// 			url: "https://www.travellings.cn/go.html",
 	// 			external: true,
-	// 			icon: "fa6-brands:github",
-	// 		},
-	// 		{
-	// 			name: "Bilibili",
-	// 			url: "https://space.bilibili.com/38932988",
-	// 			external: true,
-	// 			icon: "fa6-brands:bilibili",
-	// 		},
+	// 			icon: "",
+	// 		}
 	// 	],
 	// });
+
 
 	links.push(LinkPreset.Friends);
 
@@ -52,8 +47,16 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 			...(siteConfig.pages.bangumi ? [LinkPreset.Bangumi] : []), // 根据配置决定是否添加番组计划页面
 		],
 	});
+
+	links.push({
+		name: "开往",
+		url: "https://www.travellings.cn/go.html",
+		icon: "material-symbols:train",
+		external: true,
+	});
 	// 仅返回链接，其它导航搜索相关配置在模块顶层常量中独立导出
 	return { links } as NavBarConfig;
+	
 };
 
 // 导航搜索配置
