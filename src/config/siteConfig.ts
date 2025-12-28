@@ -14,8 +14,10 @@ export const siteConfig: SiteConfig = {
 	keywords: [
 		"IT",
 		"Information Technology",
-		"Astro",
-		"Cloud",
+		"Linux",
+		"Server",
+		"服务器",
+		"DevOps",
 		"Cloud Computing",
 		"运维",
 		"博客",
@@ -111,9 +113,9 @@ export const siteConfig: SiteConfig = {
 		// 背景图片配置
 		src: {
 			// 桌面背景图片
-			desktop: "/assets/images/cover1.jpg",
+			desktop: "/assets/images/cover.webp",
 			// 移动背景图片
-			mobile: "/assets/images/cover1.jpg",
+			mobile: "/assets/images/cover.webp",
 		},
 
 		// Banner模式特有配置
