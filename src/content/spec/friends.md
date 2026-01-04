@@ -13,7 +13,7 @@ description: "与优秀的朋友们一起成长"
 站点名称: White~Festa
 站点描述: 一处纯白色的灵感庆典。
 站点链接: https://white-festa.net
-头像链接: https://white-festa.net/assets/images/avatar.jpg
+头像链接: https://white-festa.net/assets/images/avatar.webp
 
 ```
 
