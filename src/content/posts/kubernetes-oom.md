@@ -23,9 +23,9 @@ Kubernetes 节点压力驱逐的顺序受两个因素影响，分别是``Quality
 
 其次看PriorityClass：同一Qos中，PriorityClass更高的更容易存活
 
-最后看资源使用量：同一Qos且PriorityClass相同的情况下(默认为0或者使用了同一PriorityClass)：内存使用量更大的更容易被驱逐(这里内存使用量指的是数据量的绝对值，而不是request/limit的结果)
+最后看资源使用量：同一Qos且PriorityClass相同的情况下(默认为0或者使用了同一PriorityClass)：内存使用量更大的更容易被驱逐
 
-# Kubelet如何利用cgroups实现Pod OOM(基于cgroups v2)
+# Kubelet如何通过cgroups配置影响OOM行为(基于cgroups v2)
 首先要知道，kubernetes所有的对资源的统计、管理、限额和驱逐都是基于cgroups实现的
 ## kubernetes Pod 在 Node主机上的cgroups映射
 以一个logstash pod为例。
@@ -157,6 +157,15 @@ oom_score_adj = 1000 - (1000 * memory_request) / node_allocatable_memory
 另外，kubelet自身的oom_score_adj是-999，这意味着kubelet几乎是在所有用户态应用中拥有最高oom优先级的应用，然而当极端情况发生时，kubelet并非不可抛弃，原因很简单：kubelet挂了，节点还有自愈的可能，而节点如果因为内存无法释放导致卡死，几乎无法通过重启以外的方式复原，因为操作窗口（比如ssh）都无法使用，两者的严重程度还是相差很多的。
 
 通过这个oom_score_adj，kubernetes能够确保高价值Pod在系统OOM发生时拥有更高的存活概率，这个设计非常出色。
+
+## VPA 影响 oom_score_adj
+VPA 不影响 Pod 资源的上限，但可以在部署时根据实际情况自动修正 requests 的值，使得 Pod 更容易被调度到真正拥有足够资源的节点上，而不是因为其较小 requests 的值被调度到一个资源不充足的节点上，并在资源使用量逐渐提高后被 kubelet 驱逐；
+
+VPA 修改 requests 的值会影响 Pod 在节点宿主机上映射出来的 cgroups oom_score_adj 的值。由于 Burstable Pod 的oom_score_adj 是 0-999，VPA 通过适当修正 requests 的值，可以使 request 与 limits 之间的差距缩小，使 oom_score_adj 的取值区间降低，这会导致当系统级 OOM 发生时，Pod 更晚被 OOM。
+
+:::tip
+VPA 不会动态修改运行中 Pod 的 oom_score_adj，仅影响新创建的 Pod 或通过重建生效
+:::
 
 # 总结
 节点压力驱逐：是kubelet主动发起的、基于kubelet监控数据的Pod删除行为，旨在防止节点崩溃。它是一个相对“温和”、有顺序的清理过程。
