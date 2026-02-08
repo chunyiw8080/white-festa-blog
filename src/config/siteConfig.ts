@@ -10,7 +10,7 @@ export const siteConfig: SiteConfig = {
 	subtitle: "白色庆典🎉",
 	site_url: "https://white-festa.net",
 	description:
-		"Firefly 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。",
+		"white-festa.net是一个专注于IT技术、Linux服务器、DevOps和云计算等领域的技术博客，分享实用的技术文章和经验。",
 	keywords: [
 		"IT",
 		"Information Technology",
@@ -113,9 +113,9 @@ export const siteConfig: SiteConfig = {
 		// 背景图片配置
 		src: {
 			// 桌面背景图片
-			desktop: "/assets/images/cover.webp",
+			desktop: "/assets/images/cover2.webp",
 			// 移动背景图片
-			mobile: "/assets/images/cover.webp",
+			mobile: "/assets/images/cover2.webp",
 		},
 
 		// Banner模式特有配置
@@ -123,16 +123,16 @@ export const siteConfig: SiteConfig = {
 			// 图片位置
 			// 支持所有CSS object-position值，如: 'top', 'center', 'bottom', 'left top', 'right bottom', '25% 75%', '10px 20px'..
 			// 如果不知道怎么配置百分百之类的配置，推荐直接使用：'center'居中，'top'顶部居中，'bottom' 底部居中，'left'左侧居中，'right'右侧居中
-			position: "center",
+			position: "bottom",
 
 			homeText: {
 				// 主页显示自定义文本（全局开关）
 				enable: true,
 				// 主页横幅主标题
-				title: "🎄White~Festa🎄",
+				title: "White~Festa",
 				// 主页横幅副标题
 				subtitle: [
-					"Marry Christmas!",
+					// "一处纯白色的灵感庆典",
 					// "Welcome to White~Festa!",
 					// "Enjoy your stay!",
 					// "Have a great day!",
@@ -148,16 +148,16 @@ export const siteConfig: SiteConfig = {
 			},
 			credit: {
 				enable: {
-					desktop: false, // 桌面端显示横幅图片来源文本
-					mobile: false, // 移动端显示横幅图片来源文本
+					desktop: true, // 桌面端显示横幅图片来源文本
+					mobile: true, // 移动端显示横幅图片来源文本
 				},
 				text: {
-					desktop: "Pixiv - 晚晚喵", // 桌面端要显示的来源文本
-					mobile: "Pixiv - KiraraShss", // 移动端要显示的来源文本
+					desktop: "Pixiv - Gracile", // 桌面端要显示的来源文本
+					mobile: "Pixiv - Gracile", // 移动端要显示的来源文本
 				},
 				url: {
-					desktop: "https://www.pixiv.net/artworks/135490046", // 桌面端原始艺术品或艺术家页面的 URL 链接
-					mobile: "https://www.pixiv.net/users/42715864", // 移动端原始艺术品或艺术家页面的 URL 链接
+					desktop: "https://www.pixiv.net/users/3434849", // 桌面端原始艺术品或艺术家页面的 URL 链接
+					mobile: "https://www.pixiv.net/users/3434849", // 移动端原始艺术品或艺术家页面的 URL 链接
 				},
 			},
 			navbar: {
