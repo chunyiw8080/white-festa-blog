@@ -63,7 +63,7 @@ export const siteConfig: SiteConfig = {
 
 	// bangumi配置
 	bangumi: {
-		userId: "1163581", // 在此处设置你的Bangumi用户ID
+		userId: "1210951", // 在此处设置你的Bangumi用户ID
 	},
 
 	// 文章页底部的"上次编辑时间"卡片开关
@@ -80,7 +80,7 @@ export const siteConfig: SiteConfig = {
 	pages: {
 		sponsor: true, // 赞助页面开关
 		guestbook: true, // 留言板页面开关，需要配置评论系统
-		bangumi: false, // 番组计划页面开关，含追番和游戏，dev调试时只获取一页数据，build才会获取全部数据
+		bangumi: true, // 番组计划页面开关，含追番和游戏，dev调试时只获取一页数据，build才会获取全部数据
 	},
 
 	// 文章列表布局配置
@@ -140,7 +140,7 @@ export const siteConfig: SiteConfig = {
 				typewriter: {
 					//打字机开启 → 循环显示所有副标题
 					//打字机关闭 → 每次刷新随机显示一条副标题
-					enable: true, // 启用副标题打字机效果
+					enable: false, // 启用副标题打字机效果
 					speed: 100, // 打字速度（毫秒）
 					deleteSpeed: 50, // 删除速度（毫秒）
 					pauseTime: 2000, // 完全显示后的暂停时间（毫秒）
