@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记五：Deployment控制器
-published: 2025-02-25
+published: 2024-02-25
 pinned: false
 description: 使用Deployment 为 Pod 和 ReplicaSet 提供声明式的更新能力。
 tags: [Kubernetes]

@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记三：Pod的调度策略
-published: 2025-02-09
+published: 2023-12-27
 pinned: false
 description: Pod的调度策略与节点亲和性
 tags: [Kubernetes]

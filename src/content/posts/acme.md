@@ -1,6 +1,6 @@
 ---
 title: 使用ACME.SH进行免费且自动化的DV证书续订
-published: 2024-02-23
+published: 2024-01-23
 pinned: false
 description: ACME，即自动自动证书管理环境(Automatic Certificate Management Environment)，是一个无需人工干预就能自动颁发和更新证书的协议。目前，证书颁发机构Let’s Encrypt通过ACME协议免费提供DV证书。
 tags: [SSL]

@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记十二：Kubernetes RBAC鉴权机制
-published: 2025-09-02
+published: 2024-09-02
 pinned: false
 description: 在Kubernetes中通过RBAC鉴权机制实现对工作资源的权限控制
 tags: [Kubernetes]

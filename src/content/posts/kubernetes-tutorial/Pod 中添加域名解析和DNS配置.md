@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记六：在Pod中添加域名解析和DNS配置
-published: 2025-04-17
+published: 2024-04-17
 pinned: false
 description: 使用hostAliases进行别名映射；在Pod中配置域名解析。
 tags: [Kubernetes]

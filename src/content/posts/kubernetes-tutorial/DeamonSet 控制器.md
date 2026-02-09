@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记七：DaemonSet控制器
-published: 2025-05-07
+published: 2024-05-07
 pinned: false
 description: 使用DaemonSet确保在集群中的每个节点都运行一个特定Pod，该Pod可以用于执行某些特定任务。
 tags: [Kubernetes]

@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记十一：ConfigMap和Secret
-published: 2025-08-19
+published: 2024-08-19
 pinned: false
 description: 在Kubernetes中通过ConfigMap和Secret管理常规配置和敏感数据
 tags: [Kubernetes]

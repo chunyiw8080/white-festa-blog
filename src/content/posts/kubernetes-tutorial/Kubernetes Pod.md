@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记二：Kubernetes Pods
-published: 2025-01-30
+published: 2023-10-22
 pinned: false
 description: Kubernetes Pod概念，Sidecar、Init和Pause容器的概念和使用以及Pod的几种状态
 tags: [Kubernetes]

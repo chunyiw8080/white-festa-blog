@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记八：Kubernetes Service
-published: 2025-06-03
+published: 2024-06-03
 pinned: false
 description: 通过Kubernetes Service将工作负载对外暴露
 tags: [Kubernetes]

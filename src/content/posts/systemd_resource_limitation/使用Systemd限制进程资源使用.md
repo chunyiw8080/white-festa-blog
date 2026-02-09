@@ -1,6 +1,6 @@
 ---
 title: 最新实践：使用systemd限制进程资源使用
-published: 2024-11-09
+published: 2025-11-09
 pinned: false
 description: 介绍了如何使用systemd进行进程级的资源限制(基于Cgroups)，以及如何使用systemd-run限制临时进程的资源使用
 tags: [Linux性能优化]

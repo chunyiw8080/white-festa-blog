@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记一：Kubernetes Namespace与Label
-published: 2024-12-20
+published: 2023-10-19
 pinned: false
 description: Kubernetes Namespace与Label的基本概念、定义和使用
 tags: [Kubernetes]

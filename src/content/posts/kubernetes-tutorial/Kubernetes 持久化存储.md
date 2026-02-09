@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记九：Kubernetes 数据存储持久化
-published: 2025-06-11
+published: 2024-06-11
 pinned: false
 description: 介绍了Kubernetes中几种数据持久化的方法
 tags: [Kubernetes]

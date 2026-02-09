@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记十三：Kubernetes Ingress
-published: 2025-09-22
+published: 2024-11-13
 pinned: false
 description: 在Kubernetes中通过Ingress实现Web代理、HTTPS站点和灰度发布
 tags: [Kubernetes]

@@ -1,6 +1,6 @@
 ---
 title: Kubernetes学习笔记十：Kubernetes StatefulSet控制器
-published: 2025-07-15
+published: 2024-07-15
 pinned: false
 description: 使用StatefulSet控制器管理部署在Kubernetes中的有状态应用
 tags: [Kubernetes]
