@@ -106,16 +106,16 @@ export const siteConfig: SiteConfig = {
 
 	backgroundWallpaper: {
 		// 壁纸模式："banner" 横幅壁纸，"overlay" 全屏透明，"none" 纯色背景无壁纸
-		mode: "banner",
+		mode: "overlay",
 		// 是否允许用户通过导航栏切换壁纸模式，设为false可提升性能（只渲染当前模式）
 		switchable: false,
 
 		// 背景图片配置
 		src: {
 			// 桌面背景图片
-			desktop: "/assets/images/cover2.webp",
+			desktop: "/assets/images/cover3.webp",
 			// 移动背景图片
-			mobile: "/assets/images/cover2.webp",
+			mobile: "/assets/images/cover3.webp",
 		},
 
 		// Banner模式特有配置
