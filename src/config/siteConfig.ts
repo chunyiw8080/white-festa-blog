@@ -32,15 +32,21 @@ export const siteConfig: SiteConfig = {
 	themeColor: {
 		hue: 250, // 主题色的默认色相，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
 		fixed: true, // 对访问者隐藏主题色选择器
-		defaultMode: "light", // 默认模式："light" 亮色，"dark" 暗色，"system" 跟随系统
+		defaultMode: "dark", // 默认模式："light" 亮色，"dark" 暗色，"system" 跟随系统
 	},
 
 	favicon: [
 		// 留空以使用默认 favicon
 		{
-			src: "/assets/images/favicon.ico", // 图标文件路径
+			src: "/assets/images/favicon.png", // 图标文件路径
 			// 不指定 theme，以便在所有主题下都作为回退图标使用
 			theme: "dark", // 可选，指定图标适用的主题（如 "light"、"dark"）
+			sizes: "96x96", // 可选，图标大小
+		},
+		{
+			src: "/assets/images/favicon.png", // 图标文件路径
+			// 不指定 theme，以便在所有主题下都作为回退图标使用
+			theme: "light", // 可选，指定图标适用的主题（如 "light"、"dark"）
 			sizes: "96x96", // 可选，图标大小
 		},
 	],
@@ -52,10 +58,10 @@ export const siteConfig: SiteConfig = {
 	// { type: "image", value: "https://example.com/logo.png", alt: "Firefly Logo" }
 	navbarLogo: {
 		type: "image",
-		value: "/assets/images/favicon.ico",
+		value: "/assets/images/favicon.png",
 		alt: "❄️",
 	},
-	navbarTitle: "White~Festa", // 导航栏标题，可以设置为与 title 不同的值，如果不设置则使用 title
+	navbarTitle: " ", // 导航栏标题，可以设置为与 title 不同的值，如果不设置则使用 title
 	navbarWidthFull: true, // 全宽导航栏，导航栏是否占满屏幕宽度，true：占满，false：不占满
 
 	// 站点开始日期，用于统计运行天数

@@ -54,7 +54,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
         "!overflow-visible h-[4.5rem] mx-auto flex items-center px-4",
         navbarWidthFull ? "" : "justify-between max-w-[var(--page-width)]"
     ]}>
-        <a href={url('/')} class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
+        <!-- <a href={url('/')} class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
             <div class="flex flex-row dark:text-white text-black items-center text-md">
                                 {siteConfig.navbarLogo?.type === "icon" ? (
                                     <Icon name={siteConfig.navbarLogo.value || "material-symbols:home-pin-outline"} class="text-[1.75rem] mb-1 mr-2" />
@@ -65,7 +65,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
                                 )}
                 {navbarTitle}
             </div>
-        </a>
+        </a> -->
         <div class="hidden md:flex items-center space-x-1">
             {links.map((l) => {
                 return <DropdownMenu link={l} />;
