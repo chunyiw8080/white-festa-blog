@@ -18,29 +18,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		LinkPreset.Archive,
 	];
 
-	// 自定义导航栏链接,并且支持多级菜单
-	// links.push({
-	// 	name: "链接",
-	// 	url: "/links/",
-	// 	icon: "material-symbols:link",
-
-	// 	// 子菜单
-	// 	children: [
-	// 		{
-	// 			name: "GitHub",
-	// 			url: "https://github.com/CuteLeaf/Firefly",
-	// 			external: true,
-	// 			icon: "fa7-brands:github",
-	// 		},
-	// 		{
-	// 			name: "Bilibili",
-	// 			url: "https://space.bilibili.com/38932988",
-	// 			external: true,
-	// 			icon: "fa7-brands:bilibili",
-	// 		},
-	// 	],
-	// });
-
 	// 友链
 	links.push(LinkPreset.Friends);
 
@@ -65,6 +42,24 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 			...(siteConfig.pages.bangumi ? [LinkPreset.Bangumi] : []),
 		],
 	});
+
+	links.push({
+		name: "项目",
+		url: "/projects/",
+		icon: "material-symbols:star",
+
+		// 子菜单
+		children: [
+			{
+				name: "Reget - 语义化正则匹配引擎",
+				url: "https://github.com/chunyiw8080/reget",
+				external: true,
+				icon: "fa7-brands:github",
+			},
+		],
+	});
+
+
 	links.push({
 		name: "开往",
 		url: "https://www.travellings.cn/go.html",
