@@ -8,7 +8,7 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	// 2. 导航栏：在本配置文件把showInNavbar设为false禁用即可
 
 	// 是否在导航栏显示音乐播放器入口
-	showInNavbar: true,
+	showInNavbar: false,
 
 	// 使用方式："meting" 使用 Meting API，"local" 使用本地音乐列表
 	mode: "local",
@@ -20,7 +20,7 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	playMode: "one",
 
 	// 是否显启用歌词
-	showLyrics: false,
+	showLyrics: true,
 
 	// Meting API 配置
 	meting: {
@@ -50,11 +50,11 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	local: {
 		playlist: [
 			{
-				name: "Snow Halation",
-				artist: "μ's",
-				url: "/assets/music/Snow halation.mp3",
-				cover: "/assets/music/cover/Snow_halation.webp",
-				lrc: "", // 歌词内容，支持 LRC 格式
+				name: "DISTANCE",
+				artist: "宇多田ヒカル",
+				url: "/assets/music/DISTANCE-宇多田ヒカル.mp3",
+				cover: "/assets/music/cover/DISTANCE-宇多田ヒカル.jpg",
+				lrc: "/assets/music/DISTANCE-宇多田ヒカル.lrc", // 歌词内容，支持 LRC 格式
 			},
 		],
 	},
