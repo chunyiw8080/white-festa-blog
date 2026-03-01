@@ -453,7 +453,7 @@ INSERT INTO cdk (cdk, content) VALUES
 https://github.com/chunyiw8080/cdk-backend.git
 
 ### 4.2 编写Dockerfile并打包为镜像
-```Dockerfile
+```txt
 FROM python:3.12.2
 
 WORKDIR /cdk
