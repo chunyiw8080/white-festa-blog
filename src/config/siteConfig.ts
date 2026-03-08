@@ -46,10 +46,17 @@ export const siteConfig: SiteConfig = {
 		defaultMode: "dark",
 	},
 
+	// 页面整体宽度（单位：rem）
+	// 数值越大可以让页面内容区域更宽
+	// 在使用单侧栏边栏时，建议调低一些宽度以获得更好的视觉效果。
+	pageWidth: 100,
+
 	// 网站Card样式配置
 	card: {
 		// 是否开启卡片边框和阴影，开启后让网站更有立体感
-		border: true,
+		border: false,
+		// 是否让卡片风格跟随主题色相
+		followTheme: false,
 	},
 
 	// Favicon 配置
@@ -80,7 +87,10 @@ export const siteConfig: SiteConfig = {
 		// 导航栏标题
 		title: "🎉White Festa🎉",
 		// 全宽导航栏，导航栏是否占满屏幕宽度，true：占满，false：不占满
+
 		widthFull: true,
+		// 导航菜单对齐方式，left：左对齐，center：居中
+		menuAlign: "center",
 		// 导航栏图标和标题是否跟随主题色
 		followTheme: false,
 	},
@@ -113,7 +123,12 @@ export const siteConfig: SiteConfig = {
 	// bangumi配置
 	bangumi: {
 		// Bangumi用户ID
+
 		userId: "1210951",
+		// 条目类型排序，数组中的类型将按顺序优先展示
+		// 可选值: "anime" | "book" | "music" | "game" | "real" (暂不支持"real"类型)
+		// 未列出的类型将按默认顺序排在后面
+		categoryOrder: ["anime", "book", "music", "game"],
 	},
 
 	// 页面开关配置 - 控制特定页面的访问权限，设为false会返回404
@@ -125,6 +140,8 @@ export const siteConfig: SiteConfig = {
 		guestbook: true,
 		// 番组计划页面开关，含追番、游戏、书籍和音乐，dev调试时只获取一页数据，build才会获取全部数据
 		bangumi: true,
+		// 相册页面开关
+		gallery: true,
 	},
 
 	// 分类导航栏开关，在首页和归档页顶部显示分类快捷导航
@@ -140,10 +157,8 @@ export const siteConfig: SiteConfig = {
 		grid: {
 			// 是否开启瀑布流布局，同时有封面图和无封面图的混合文章推荐开启
 			masonry: false,
-			// 网格模式列数：2 或 3
-			// 2列是默认模式，在任何侧边栏配置下均可生效
-			// 3列模式仅在单侧边栏（或无侧边栏）时生效，
-			columns: 3,
+			// 网格模式卡片最小宽度(px)，浏览器根据容器宽度自动计算列数，默认 280
+			columnWidth: 320,
 		},
 	},
 
@@ -174,6 +189,10 @@ export const siteConfig: SiteConfig = {
 		formats: "webp",
 		// 图片压缩质量 (1-100)，值越低体积越小但质量越差，推荐 70-85
 		quality: 85,
+		// 为特定域名的图片添加 referrerpolicy="no-referrer" 属性
+		// 支持通配符 *，例如：["i0.hdslb.com", "*.bilibili.com"]
+		// 可解决指定域名图片加载时的 403 问题（如防盗链图片）
+		noReferrerDomains: [],
 	},
 
 	// 字体配置

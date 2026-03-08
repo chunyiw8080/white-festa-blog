@@ -3,6 +3,7 @@ import GoogleAnalytics from "@components/analytics/GoogleAnalytics.astro";
 import MicrosoftClarity from "@components/analytics/MicrosoftClarity.astro";
 import FancyboxManager from "@components/features/FancyboxManager.astro";
 import FontManager from "@components/features/FontManager.astro";
+import MusicManager from "@components/features/MusicManager.astro";
 import SakuraEffect from "@components/features/SakuraEffect.astro";
 import ConfigCarrier from "@components/layout/ConfigCarrier.astro";
 
@@ -151,6 +152,70 @@ const siteLang = lang.replace("_", "-");
       ))
     }
 
+    <!-- 为特定域名的图片添加 referrerpolicy 以解决 403 问题 -->
+    {siteConfig.imageOptimization?.noReferrerDomains &&
+     siteConfig.imageOptimization.noReferrerDomains.length > 0 && (
+      <script
+        is:inline
+        define:vars={{
+          noReferrerDomains: JSON.stringify(
+            siteConfig.imageOptimization.noReferrerDomains
+          ),
+        }}
+      >
+        (function() {
+          const domains = JSON.parse(noReferrerDomains);
+
+          // 域名匹配函数，支持通配符
+          function matchesDomain(urlStr, patterns) {
+            try {
+              const urlObj = new URL(urlStr);
+              const hostname = urlObj.hostname;
+
+              return patterns.some(function(pattern) {
+                const regexPattern = pattern.replace(/\./g, '\\.').replace(/\*/g, '.*');
+                const regex = new RegExp('^' + regexPattern + '$');
+                return regex.test(hostname);
+              });
+            } catch (e) {
+              return false;
+            }
+          }
+
+          // 处理单个图片元素
+          function processImage(img) {
+            if (!img.src || img.hasAttribute('referrerpolicy')) return;
+
+            if (matchesDomain(img.src, domains)) {
+              img.setAttribute('referrerpolicy', 'no-referrer');
+            }
+          }
+
+          // 立即处理页面上的所有图片
+          document.querySelectorAll('img').forEach(processImage);
+
+          // 使用 MutationObserver 监听动态加载的图片
+          const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+              mutation.addedNodes.forEach(function(node) {
+                if (node.nodeName === 'IMG') {
+                  processImage(node);
+                }
+                if (node.querySelectorAll) {
+                  node.querySelectorAll('img').forEach(processImage);
+                }
+              });
+            });
+          });
+
+          observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true
+          });
+        })();
+      </script>
+    )}
+
     <!-- Set the theme before the page is rendered to avoid a flash -->
     <script
       is:inline
@@ -165,6 +230,7 @@ const siteLang = lang.replace("_", "-");
         darkTheme: expressiveCodeConfig.darkTheme,
         lightTheme: expressiveCodeConfig.lightTheme,
         baseUrl: import.meta.env.BASE_URL,
+        cardTransparentOpacity: backgroundWallpaper.overlay?.cardOpacity ?? 0.6,
       }}
     >
       // 主题初始化 - 与setting-utils.ts保持一致
@@ -209,6 +275,9 @@ const siteLang = lang.replace("_", "-");
       // Load the hue from local storage
       const hue = localStorage.getItem("hue") || configHue;
       document.documentElement.style.setProperty("--hue", hue);
+
+      // 设置卡片透明度（全屏透明模式下使用）
+      document.documentElement.style.setProperty("--card-transparent-opacity", String(cardTransparentOpacity));
 
       // calculate the --banner-height-extend, which needs to be a multiple of 4 to avoid blurry text
       // 使用更准确的窗口高度计算
@@ -400,7 +469,7 @@ const siteLang = lang.replace("_", "-");
     <style
       define:vars={{
         configHue,
-        "page-width": `${PAGE_WIDTH}rem`,
+        "page-width": `${siteConfig.pageWidth ?? PAGE_WIDTH}rem`,
       }}
     ></style>
     <!-- defines global css variables. This will be applied to <html> <body> and some other elements idk why -->
@@ -424,6 +493,7 @@ const siteLang = lang.replace("_", "-");
         "lg:is-home": isHomePageCheck,
         "enable-banner": enableBanner,
         "enable-card-border": siteConfig.card?.border,
+        "card-follow-theme-hue": siteConfig.card?.followTheme,
       },
       ...(siteConfig.font.enable && siteConfig.font.selected
         ? (Array.isArray(siteConfig.font.selected)
@@ -439,6 +509,7 @@ const siteLang = lang.replace("_", "-");
     <!-- 页面顶部渐变高光效果 - 只在full和semifull模式下显示 -->
     {shouldShowTopHighlight && <div class="top-gradient-highlight" />}
     <ConfigCarrier />
+    <MusicManager />
     <slot />
 
 
@@ -846,6 +917,12 @@ function disableAnimation() {
       if (toc) {
         toc.classList.add("toc-not-ready");
       }
+
+      // 确保页面滚动到顶部，使用平滑滚动避免侧边栏闪烁
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
     });
     window.swup.hooks.on("page:view", () => {
       // 更新网格列数和侧边栏组件可见性
@@ -857,12 +934,6 @@ function disableAnimation() {
       if (heightExtend) {
         heightExtend.classList.remove("hidden");
       }
-
-      // 确保页面滚动到顶部，使用平滑滚动避免侧边栏闪烁
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
 
       // 在移动端恢复文章列表容器的过渡动画（在主内容区位置动画完成后）
       const isMobile = window.innerWidth < 1024;

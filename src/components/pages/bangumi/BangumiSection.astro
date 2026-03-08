@@ -121,14 +121,15 @@ const defaultFilter = "all"; // 默认显示全部，用户可以通过筛选器
         sectionId={sectionId}
       />
 
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-        {items.map((item) => (
+      <div class="bangumi-masonry">
+				{items.map((item, index) => (
           <div
             class="bangumi-item"
             data-item-section={sectionId}
             data-item-status={statusMap[item.type as keyof typeof statusMap] || "unknown"}
+						style={index < itemsPerPage ? undefined : "display: none;"}
           >
-            <Card item={item} />
+						<Card item={item} loadImage={isActive && index < itemsPerPage} />
           </div>
         ))}
       </div>
@@ -147,3 +148,11 @@ const defaultFilter = "all"; // 默认显示全部，用户可以通过筛选器
     </div>
   )}
 </div>
+
+<style is:global>
+  .bangumi-masonry {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.75rem;
+  }
+</style>

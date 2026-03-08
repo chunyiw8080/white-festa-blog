@@ -199,6 +199,15 @@ export const ja: Translation = {
 	// ピン留め
 	[Key.pinned]: "ピン留め",
 
+	// 関連記事
+	[Key.relatedPosts]: "関連記事",
+	[Key.randomPosts]: "ランダム記事",
+	[Key.smartRecommend]: "スマート",
+	[Key.randomRecommend]: "ランダム",
+
+	// 暗号化
+	[Key.postEncrypted]: "この記事は暗号化されています",
+
 	// 壁紙モード
 	[Key.wallpaperMode]: "壁紙モード",
 	[Key.wallpaperBannerMode]: "バナー壁紙",
@@ -209,6 +218,10 @@ export const ja: Translation = {
 	[Key.bannerSettings]: "バナー設定",
 	[Key.bannerTitle]: "ホームバナータイトル",
 	[Key.wavesAnimation]: "波アニメーション",
+	[Key.overlaySettings]: "透明設定",
+	[Key.overlayOpacity]: "壁紙の透明度",
+	[Key.overlayBlur]: "背景ぼかし",
+	[Key.overlayCardOpacity]: "カード透明度",
 
 	// 投稿リストレイアウト
 	[Key.postListLayout]: "投稿リストレイアウト",
@@ -282,4 +295,23 @@ export const ja: Translation = {
 	[Key.codeCollapsibleShowLess]: "少なく表示",
 	[Key.codeCollapsibleExpanded]: "コードブロックが展開されました",
 	[Key.codeCollapsibleCollapsed]: "コードブロックが折りたたまれました",
+
+	// ギャラリーページ
+	[Key.gallery]: "ギャラリー",
+	[Key.galleryDescription]: "人生の美しい瞬間を記録する",
+	[Key.galleryPhotos]: "枚の写真",
+	[Key.galleryAlbums]: "冊のアルバム",
+	[Key.galleryNoAlbums]: "アルバムがありません",
+	[Key.galleryBackToAlbums]: "アルバム一覧に戻る",
+
+	// パスワード保護
+	[Key.passwordProtected]: "パスワード保護",
+	[Key.passwordProtectedDesc]:
+		"この記事はパスワードで保護されています。内容を表示するにはパスワードを入力してください。",
+	[Key.passwordHint]: "ヒント",
+	[Key.passwordPlaceholder]: "パスワードを入力",
+	[Key.passwordSubmit]: "ロック解除",
+	[Key.passwordError]: "パスワードが間違っています。もう一度お試しください。",
+	[Key.passwordProtectedRss]:
+		"この記事は暗号化されています。ウェブサイトにアクセスしてご覧ください。",
 };

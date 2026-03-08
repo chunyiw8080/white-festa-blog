@@ -16,6 +16,8 @@
 [![Issues](https://img.shields.io/github/issues/CuteLeaf/Firefly)](https://github.com/CuteLeaf/Firefly/issues)
 > 
 > [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Z8Z41NQALY)
+>
+> **QQ交流群：[1087127207](https://qm.qq.com/q/ZGsFa8qX2G)**
 > 
 > ![GitHub License](https://img.shields.io/github/license/CuteLeaf/Firefly)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/CuteLeaf/Firefly)
@@ -72,37 +74,6 @@
 - [x] **Wallpaper Mode Switching** - Banner wallpaper, fullscreen wallpaper, solid background
 - [x] **Theme Color Customization** - 360° hue adjustment
 
-### Page Components
-- [x] **Guestbook** - Supports guestbook page
-- [x] **Announcement Bar** - Supports sidebar announcement notification
-- [x] **Mascot** - Supports both Spine and Live2D animation engines
-- [x] **Site Statistics** - Displays article, category, tag counts, total word count, etc.
-- [x] **Site Calendar** - Displays current month calendar and published articles for the month
-- [x] **Sponsor Page** - Sponsor link redirection, payment QR codes display, sponsor list, in-article sponsor button
-- [x] **Share Poster** - Supports generating beautiful article share posters
-- [x] **Sakura Effect** - Supports sakura effect, fullscreen sakura animation
-- [x] **Friend Links** - Beautiful friend links display page
-- [x] **Ad Component** - Supports custom sidebar advertising content
-- [x] **Bangumi** - Display anime and game tracking based on Bangumi API
-- [x] **Comment System** - Integrates Twikoo, Waline, Giscus, Disqus, Artalk comment systems
-- [x] **Visit Counter** - Supports calling Waline, Twikoo built-in visit tracking
-- [x] **Music Player** - Material Design 3 style music player
-
-### Content Enhancement
-- [x] **Image Lightbox** - Fancybox image preview functionality
-- [x] **Floating TOC** - Dynamically displays article table of contents, supports anchor jumping, shown when sidebar TOC is hidden
-- [x] **Email Protection** - Prevent automated crawlers from directly scraping email addresses to avoid spam
-- [x] **Sidebar TOC** - Dynamically displays article table of contents, supports anchor jumping
-- [x] **Enhanced Code Blocks** - Based on Expressive Code, supports code folding, line numbers, language identification
-- [x] **Math Formula Support** - KaTeX rendering engine, supports inline and block formulas
-- [x] **Random Cover Images** - Supports fetching random cover images via API
-- [x] **Markdown Extensions** - More Markdown extension syntax support
-
-### SEO
-- [x] **SEO Optimization** - Complete meta tags and structured data
-- [x] **RSS Feed** - Automatically generates RSS Feed
-- [x] **Sitemap** - Automatically generates XML Sitemap with page filtering configuration
-- [x] **Analytics** - Integrates Google Analytics, Microsoft Clarity
 
 If you have useful features and optimizations, please submit a [Pull Request](https://github.com/CuteLeaf/Firefly/pulls)
 
@@ -110,8 +81,8 @@ If you have useful features and optimizations, please submit a [Pull Request](ht
 
 ### Requirements
 
-- Node.js ≤ 22
-- pnpm ≤ 9
+- Node.js ≥ 22
+- pnpm ≥ 9
 
 ### Local Development
 
@@ -146,7 +117,8 @@ If you have useful features and optimizations, please submit a [Pull Request](ht
    Blog will be available at `http://localhost:4321`
 
 ### Platform Hosting Deployment
-- **Refer to the [official guide](https://docs.astro.build/en/guides/deploy/) to deploy your blog to Vercel, Netlify, GitHub Pages, Cloudflare Pages, EdgeOne Pages, etc.**
+- **Refer to the [official guide](https://docs.astro.build/en/guides/deploy/) to deploy your blog to Vercel, Netlify, Cloudflare Pages, EdgeOne Pages, etc.**
+- **Vercel**, **Netlify** and other major platforms auto-deploy, automatically selecting the appropriate adapter based on the environment.
 
    Framework Preset: `Astro`
 
@@ -157,6 +129,9 @@ If you have useful features and optimizations, please submit a [Pull Request](ht
    Build Command: `pnpm run build`
 
    Install Command: `pnpm install`
+
+   [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/CuteLeaf/Firefly&project-name=Firefly&repository-name=Firefly)
+   [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/CuteLeaf/Firefly)
 
 ## 📖 Configuration
 
@@ -201,6 +176,7 @@ src/
 │   ├── pioConfig.ts          # Mascot configuration
 │   ├── adConfig.ts           # Ad configuration
 │   ├── friendsConfig.ts      # Friend links configuration
+│   ├── galleryConfig.ts      # Gallery configuration
 │   ├── sponsorConfig.ts      # Sponsor configuration
 │   └── coverImageConfig.ts   # Article cover image configuration
 ```

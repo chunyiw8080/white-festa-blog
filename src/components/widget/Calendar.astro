@@ -46,7 +46,7 @@ const yearText = i18n(I18nKey.year);
 // 获取当前语言
 const currentLang = siteConfig.lang || "en";
 
-const calendarDataUrl = url("/api/calendar.json");
+const calendarDataUrl = url("/api/allPostMeta.json");
 const postUrlPrefix = url("/posts/");
 ---
 
@@ -85,19 +85,19 @@ const postUrlPrefix = url("/posts/");
     </div>
 
     <!-- 月份选择视图 -->
-    <div id="month-view-container" class="hidden grid grid-cols-3 gap-2">
+    <div id="month-view-container" class="grid grid-cols-3 gap-2" style="display: none;">
       <!-- 将由 JavaScript 填充 -->
     </div>
 
     <!-- 年份选择视图 -->
-    <div id="year-view-container" class="hidden grid grid-cols-3 gap-2">
+    <div id="year-view-container" class="grid grid-cols-3 gap-2" style="display: none;">
       <!-- 将由 JavaScript 填充 -->
     </div>
     
     <!-- 文章列表 -->
     <div id="calendar-posts" class="mt-3">
       <div class="border-t border-neutral-200 dark:border-neutral-700 mb-2" id="calendar-posts-divider" style="display: none;"></div>
-      <div class="flex flex-col gap-1" id="calendar-posts-list">
+      <div class="flex flex-col gap-1 max-h-48 overflow-y-auto custom-scrollbar" id="calendar-posts-list">
         <!-- 将由 JavaScript 填充 -->
       </div>
     </div>
@@ -116,12 +116,12 @@ const postUrlPrefix = url("/posts/");
   async function fetchData() {
     try {
       // 使用缓存避免 swup 导航时重复请求
-      if (window.__calendarCache) {
-        allPostsData = window.__calendarCache;
+      if (window.__allPostMetaCache) {
+        allPostsData = window.__allPostMetaCache;
       } else {
         const response = await fetch(calendarDataUrl);
         allPostsData = await response.json();
-        window.__calendarCache = allPostsData;
+        window.__allPostMetaCache = allPostsData;
       }
       
       // Reconstruct postDateMap and availableYears
@@ -349,8 +349,13 @@ const postUrlPrefix = url("/posts/");
   
   // 显示当月所有文章
   function showMonthlyPosts(currentMonthPosts) {
+    const postsWrapper = document.getElementById('calendar-posts');
     const postsList = document.getElementById('calendar-posts-list');
     const divider = document.getElementById('calendar-posts-divider');
+
+    if (postsWrapper) {
+      postsWrapper.style.display = currentMonthPosts.length > 0 ? 'block' : 'none';
+    }
     
     if (postsList) {
       postsList.innerHTML = currentMonthPosts.map(post => {
@@ -372,6 +377,7 @@ const postUrlPrefix = url("/posts/");
   
   // 设置日历格子点击事件
   function setupClickHandlers(currentMonthPosts) {
+    const postsWrapper = document.getElementById('calendar-posts');
     const calendarDays = document.querySelectorAll('.calendar-day[data-date]');
     const postsList = document.getElementById('calendar-posts-list');
     const divider = document.getElementById('calendar-posts-divider');
@@ -407,6 +413,10 @@ const postUrlPrefix = url("/posts/");
         const posts = postDateMap[dateKey] || [];
         
         if (posts.length > 0 && postsList) {
+          if (postsWrapper) {
+            postsWrapper.style.display = 'block';
+          }
+
           // 渲染文章列表
           postsList.innerHTML = posts.map(post => {
             const date = new Date(post.published);
