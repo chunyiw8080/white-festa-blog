@@ -39,12 +39,15 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 桌面背景图片（支持单张或多张随机）
 		// desktop: "assets/images/DesktopWallpaper/d1.avif",
 		desktop: [
-			"/assets/images/cover3.webp",
+			"/assets/images/cover4.webp",
+			"/assets/images/cover5.webp",
+			"/assets/images/cover6.webp",
+			"/assets/images/cover7.webp",
 		],
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
 		mobile: [
-			"/assets/images/cover3.webp",
+			"/assets/images/cover-mobile.webp",
 		],
 	},
 	// Banner模式特有配置
@@ -61,7 +64,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否允许用户通过控制面板切换横幅标题显示
 			switchable: true,
 			// 主页横幅主标题
-			title: "White~Festa",
+			title: "White Festa",
 			// 主页横幅主标题字体大小
 			titleSize: "3.8rem",
 			// 主页横幅副标题
