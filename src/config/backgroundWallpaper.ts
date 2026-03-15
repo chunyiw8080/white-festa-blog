@@ -39,15 +39,12 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 桌面背景图片（支持单张或多张随机）
 		// desktop: "assets/images/DesktopWallpaper/d1.avif",
 		desktop: [
-			"/assets/images/cover4.webp",
-			"/assets/images/cover5.webp",
-			"/assets/images/cover6.webp",
-			"/assets/images/cover7.webp",
+			"https://images.white-festa.net/file/random?type=img&dir=banner/orientation/unsplash",
 		],
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
 		mobile: [
-			"/assets/images/cover-mobile.webp",
+			"https://images.white-festa.net/file/random?type=img&dir=banner/vertical/pixiv",
 		],
 	},
 	// Banner模式特有配置
@@ -145,7 +142,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		opacity: 0.8,
 
 		// 背景模糊度
-		blur: 3,
+		blur: 11,
 		// 卡片透明度，0-1之间，值越小越透明
 		cardOpacity: 0.5,
 	},
