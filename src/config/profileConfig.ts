@@ -7,7 +7,7 @@ export const profileConfig: ProfileConfig = {
 	// 2. src 目录（不以 "/" 开头，自动优化但会增加构建时间，推荐）："assets/images/avatar.webp"
 	// 3. 远程 URL："https://example.com/avatar.jpg"
 	// 头像
-	avatar: "/assets/images/avatar.webp",
+	avatar: "https://images.white-festa.net/file/avatar/1773551438062_avatar.webp",
 	// 名字
 	name: "常世常暗",
 	// 个人签名
