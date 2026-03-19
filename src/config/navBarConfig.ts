@@ -38,8 +38,17 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 			// 关于页面
 			LinkPreset.About,
 
+			{
+				name: "我的简历",
+				url: "https://portfolio.white-festa.net",
+				external: true,
+				icon: "fa7-solid:file",
+			},
+
 			// 根据配置决定是否添加番组计划，在siteConfig关闭pages.bangumi时导航栏不显示番组计划
 			...(siteConfig.pages.bangumi ? [LinkPreset.Bangumi] : []),
+
+
 		],
 	});
 
