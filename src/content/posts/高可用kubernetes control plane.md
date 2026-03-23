@@ -1,7 +1,7 @@
 ---
 title: 将单点Control Plane的Kubernetes扩充为多个Control Plane实现集群高可用性
 published: 2026-03-22
-pinned: false
+pinned: true
 description: 结合Nginx负载均衡，keepalived + VIP机制实现的三控制平面的kubernetes集群
 tags: [Kubernetes]
 category: 容器
@@ -331,4 +331,4 @@ VIP漂移到了192.168.100.11主机上
 可以看到k8s-master-08节点虽然宕机，但是另外两个control plane和工作节点仍然可用，因此，这个高可用集群可以说已经成功完成搭建了。
 
 ## 六、关于Quorum 选举机制
-之后再写
+[Quorum 选举机制](http://white-festa.net/posts/kubernetes-etcd共识机制/)

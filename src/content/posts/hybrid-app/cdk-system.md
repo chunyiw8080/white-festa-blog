@@ -1,7 +1,7 @@
 ---
 title: 高价值礼品码兑换系统设计思路 - 基于中心数据库+边缘计算节点架构
 published: 2025-11-17
-pinned: true
+pinned: false
 description: 本文描述了如何实现一个高价值的礼品码兑换系统的设计思路，包含了CDKEY设计方法、验证、系统架构等内容
 tags: [CloudFlare, Azure, Node, Python, 系统设计]
 category: Web架构
