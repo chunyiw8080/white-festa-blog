@@ -9,7 +9,7 @@ export const profileConfig: ProfileConfig = {
 	// 头像
 	avatar: "https://images.white-festa.net/file/avatar/1773551438062_avatar.webp",
 	// 名字
-	name: "常世常暗",
+	name: "FreelyTomorrow",
 	// 个人签名
 	bio: "If you shout loud enough, you'll be the one.",
 

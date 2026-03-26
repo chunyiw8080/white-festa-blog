@@ -1,7 +1,7 @@
 ---
 title: 将单点Control Plane的Kubernetes扩充为多个Control Plane实现集群高可用性
 published: 2026-03-22
-pinned: true
+pinned: false
 description: 结合Nginx负载均衡，keepalived + VIP机制实现的三控制平面的kubernetes集群
 tags: [Kubernetes]
 category: 容器
