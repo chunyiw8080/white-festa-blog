@@ -210,3 +210,16 @@ PING exp-02.cluster.hyperv (192.168.100.2) 56(84) bytes of data.
 ```
 
 不依靠任何本地解析文件，也可以实现基于局域网域名的互相解析。
+
+# 七、查看租约信息
+在配置文件中，已经声明了lease文件路径为``/var/log/dhcp.lease``,可以直接查看
+```text
+[root@dnsmasq-101 etc]# cat /var/log/dhcp.leases
+1774554322 00:15:5d:1a:01:16 192.168.100.117 haproxy-dhcp 01:00:15:5d:1a:01:16
+```
+1774554322是一个时间戳，可以通过date查看可读时间
+```text
+[root@dnsmasq-101 etc]# date -d @1774554322
+Fri Mar 27 03:45:22 AM CST 2026
+```
+租约到期时间为3月27日凌晨03:45:22，正好对应的是12个小时的租期。
