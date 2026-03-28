@@ -9,7 +9,7 @@ draft: false
 ---
 
 # 一、dnsmasq简介
-dnsmasq是一个轻量级的dhcp + dns服务，非常适合用在小型本地虚拟机集群中（小于100个终端设备），或者依靠其静态DHCP功能为虚拟机做初始化网络设置。
+dnsmasq是一个轻量级的dhcp + dns服务，非常适合用在小型本地虚拟机集群中（小于300个终端设备），或者依靠其静态DHCP功能为虚拟机做初始化网络设置。
 
 
 dnsmasq主要有两个功能
@@ -20,10 +20,10 @@ dnsmasq主要有两个功能
 ## 1. 实验环境
 ### 网段
 虚拟网络交换机网段：192.168.100.0/24，其中：
-- Gateway: 192.168.100.1
-- Broadcast: 192.168.100.255
-- Static IP: 192.168.100.2 - 192.168.100.100
-- DHCP IP: 192.168.100.102 - 192.168.100.130
+|Gateway |Broadcast|Static IP Addresses|DHCP IP Addresses|
+|:--:|:--:|:--:|:--:|
+|192.168.100.1|192.168.100.255|192.168.100.2 - 192.168.100.100|192.168.100.102 - 192.168.100.130|
+
 ### 主机
 三台主机：
 |-|dnsmasq |haproxy|exp-02|
@@ -151,7 +151,7 @@ nmcli connection modify eth0 ipv4.dns 192.168.100.101
 nmcli connection up eth0
 ```
 ## 2. 配置 systemd-resolved
-在Fedora 42/43 中，``systemd-resolved`` 接管了 DNS，默认情况下，DNS请求会先发送到本地的 127.0.0.53（systemd-resolved），如果未正确配置上游DNS，则不会转发到 dnsmasq；
+在Fedora 42/43 中，[systemd-resolved](https://wiki.archlinux.org/title/Systemd-resolved) 接管了 DNS，默认情况下，DNS请求会先发送到本地的 127.0.0.53（systemd-resolved），如果未正确配置上游DNS，则不会转发到 dnsmasq；
 ```bash
 # 告诉 systemd-resolved 对 cluster.hyperv 域名转发给 dnsmasq
 resolvectl dns eth0 192.168.100.101
@@ -215,7 +215,7 @@ PING exp-02.cluster.hyperv (192.168.100.2) 56(84) bytes of data.
 在配置文件中，已经声明了lease文件路径为``/var/log/dhcp.lease``,可以直接查看
 ```text
 [root@dnsmasq-101 etc]# cat /var/log/dhcp.leases
-1774554322 00:15:5d:1a:01:16 192.168.100.117 haproxy-dhcp 01:00:15:5d:1a:01:16
+1774554322 00:15:5d:1a:01:16 192.168.100.117 haproxy 01:00:15:5d:1a:01:16
 ```
 1774554322是一个时间戳，可以通过date查看可读时间
 ```text
