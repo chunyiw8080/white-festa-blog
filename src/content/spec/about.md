@@ -1,6 +1,6 @@
 # 关于我 / About Me
 
-你好！我是 **常世常暗** 。
+你好！我是 **近杉左衛門**, 因为在当兵时是门岗哨兵，而岗亭旁边有棵杉树，所以选用了这个名字。
 
 我喜欢把复杂的技术问题拆解成可以理解的部分，并通过记录的方式不断复盘。
 
@@ -19,7 +19,7 @@
 
 如果你想和我交流技术问题，分享有趣的想法，或者只是想打个招呼，欢迎通过以下方式联系我：
 
-- ✉️ **Email**: [wchunyi@foxmail.com](mailto:wchunyi@foxmail.com)
+- ✉️ **Email**: [chunyiwang@white-festa.net](mailto:chunyiwang@white-festa.net)
 
 
 ---
