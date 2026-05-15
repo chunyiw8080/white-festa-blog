@@ -3,7 +3,7 @@ title: Linux磁盘分区
 published: 2022-06-25
 pinned: false
 description: 关于磁盘插入后服务器不识别的处置方法、磁盘分区、挂载及文件系统格式化
-tags: [磁盘]
+tags: [存储]
 category: Linux
 draft: false
 ---

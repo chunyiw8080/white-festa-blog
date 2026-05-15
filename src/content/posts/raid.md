@@ -3,7 +3,7 @@ title: Raid磁盘冗余阵列
 published: 2022-06-18
 pinned: false
 description: 关于Raid磁盘备份技术的简单描述
-tags: [磁盘]
+tags: [存储]
 category: Linux
 draft: false
 ---

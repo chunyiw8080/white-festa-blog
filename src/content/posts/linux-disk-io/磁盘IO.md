@@ -3,7 +3,7 @@ title: 磁盘IO、IO指标分析及IO调度器
 published: 2025-11-03
 pinned: false
 description: 通过iostat、sar命令进行磁盘IO性能分析、调整IO调度器进行IO优化的方法
-tags: [磁盘, Linux性能优化]
+tags: [存储, Linux性能优化]
 category: Linux
 draft: false
 ---
