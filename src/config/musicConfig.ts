@@ -14,13 +14,13 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	mode: "local",
 
 	// 默认音量 (0-1)
-	volume: 0.5,
+	volume: 0.2,
 
 	// 播放模式：'list'=列表循环, 'one'=单曲循环, 'random'=随机播放
-	playMode: "one",
+	playMode: "list",
 
 	// 是否显启用歌词
-	showLyrics: true,
+	showLyrics: false,
 
 	// Meting API 配置
 	meting: {
@@ -50,11 +50,11 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	local: {
 		playlist: [
 			{
-				name: "DISTANCE",
-				artist: "宇多田ヒカル",
-				url: "/assets/music/DISTANCE-宇多田ヒカル.mp3",
-				cover: "/assets/music/cover/DISTANCE-宇多田ヒカル.jpg",
-				lrc: "/assets/music/DISTANCE-宇多田ヒカル.lrc", // 歌词内容，支持 LRC 格式
+				name: "風を待った日",
+				artist: "",
+				url: "/assets/music/風を待った日.mp3",
+				cover: "/assets/music/cover/images.jpeg",
+				lrc: "", // 歌词内容，支持 LRC 格式
 			},
 		],
 	},

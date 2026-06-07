@@ -39,11 +39,14 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 桌面背景图片（支持单张或多张随机）
 		// desktop: "assets/images/DesktopWallpaper/d1.avif",
 		// https://images.white-festa.net/random?type=img&dir=banner/orientation/unsplash
-		desktop: [
-			"https://images.white-festa.net/file/banner/orientation/pixiv/1774185641102_6.webp",
-			"https://images.white-festa.net/file/banner/orientation/pixiv/1773551398234_3.webp",
-			"https://images.white-festa.net/file/banner/orientation/pixiv/1774186246616_8.webp"
+		// desktop: [
+		// 	"https://images.white-festa.net/file/banner/orientation/pixiv/1774185641102_6.webp",
+		// 	"https://images.white-festa.net/file/banner/orientation/pixiv/1773551398234_3.webp",
+		// 	"https://images.white-festa.net/file/banner/orientation/pixiv/1774186246616_8.webp"
 			
+		// ],
+		desktop: [
+			"https://images.white-festa.net/file/banner/orientation/unsplash/1780804438275_output.webp",
 		],
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
@@ -81,7 +84,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 				// 是否启用打字机效果
 				// 打字机开启 → 循环显示所有副标题
 				// 打字机关闭 → 每次刷新随机显示一条副标题
-				enable: true,
+				enable: false,
 				// 打字速度（毫秒）
 				speed: 100,
 				// 删除速度（毫秒）
@@ -94,15 +97,15 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		credit: {
 			enable: {
 				// 桌面端显示横幅图片来源文本
-				desktop: false,
+				desktop: true,
 				// 移动端显示横幅图片来源文本
 				mobile: false,
 			},
 			text: {
 				// 桌面端要显示的来源文本
-				desktop: "Pixiv - 晚晚喵",
+				desktop: "Pixiv - GRACILE",
 				// 移动端要显示的来源文本
-				mobile: "Pixiv - KiraraShss",
+				mobile: "Pixiv - GRACILE",
 			},
 			url: {
 				// 桌面端原始艺术品或艺术家页面的 URL 链接
@@ -118,15 +121,15 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否开启毛玻璃模糊效果，开启可能会影响页面性能，如果不开启则是半透明，请根据自己的喜好开启
 			enableBlur: true,
 			// 毛玻璃模糊度
-			blur: 3,
+			blur: 2.5,
 		},
 		// 水波纹动画效果配置，开启会影响页面性能，请根据自己的喜好开启
 		waves: {
 			enable: {
 				// 桌面端是否启用水波纹动画效果
-				desktop: false,
+				desktop: true,
 				// 移动端是否启用水波纹动画效果
-				mobile: false,
+				mobile: true,
 			},
 			// 是否允许用户通过控制面板切换水波纹动画
 			switchable: false,
@@ -146,8 +149,8 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		opacity: 0.8,
 
 		// 背景模糊度
-		blur: 1,
+		blur: 9.5,
 		// 卡片透明度，0-1之间，值越小越透明
-		cardOpacity: 0.5,
+		cardOpacity: 0.3,
 	},
 };
