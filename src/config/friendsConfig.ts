@@ -46,6 +46,15 @@ export const friendsConfig: FriendLink[] = [
 		weight: 18, // 权重，数字越大排序越靠前
 		enabled: true, // 是否启用
 	},
+	{
+		title: "二丫讲梵",
+		imgurl: "https://wiki.eryajf.net/img/logo.png",
+		desc: "💻学习📝记录🔗分享",
+		siteurl: "https://wiki.eryajf.net/",
+		tags: ["Blog"],
+		weight: 17, // 权重，数字越大排序越靠前
+		enabled: true, // 是否启用
+	},
 ];
 
 // 获取启用的友链并进行排序

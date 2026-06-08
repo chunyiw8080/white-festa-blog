@@ -86,7 +86,7 @@ export const siteConfig: SiteConfig = {
 			alt: "❄️",
 		},
 		// 导航栏标题
-		title: "🎉White Festa🎉",
+		title: "White Festa",
 		// 全宽导航栏，导航栏是否占满屏幕宽度，true：占满，false：不占满
 
 		widthFull: true,
