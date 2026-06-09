@@ -46,12 +46,12 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			
 		// ],
 		desktop: [
-			"https://images.white-festa.net/file/banner/orientation/unsplash/1780804438275_output.webp",
+			"https://images.white-festa.net/file/banner/orientation/unsplash/1781011679472_grating-blur.webp",
 		],
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
 		mobile: [
-			"https://images.white-festa.net/file/banner/vertical/unsplash/1773662018557_2.webp",
+			"https://images.white-festa.net/file/banner/orientation/unsplash/1781011679472_grating-blur.webp",
 		],
 	},
 	// Banner模式特有配置
@@ -97,7 +97,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		credit: {
 			enable: {
 				// 桌面端显示横幅图片来源文本
-				desktop: true,
+				desktop: false,
 				// 移动端显示横幅图片来源文本
 				mobile: false,
 			},
@@ -149,8 +149,8 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		opacity: 0.8,
 
 		// 背景模糊度
-		blur: 9.5,
+		blur: 0,
 		// 卡片透明度，0-1之间，值越小越透明
-		cardOpacity: 0.3,
+		cardOpacity: 0.35,
 	},
 };

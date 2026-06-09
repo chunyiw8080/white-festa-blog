@@ -18,14 +18,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		LinkPreset.Archive,
 	];
 
-	// 友链
-	links.push(LinkPreset.Friends);
-
-	// 根据配置决定是否添加留言板，在siteConfig关闭pages.guestbook时导航栏不显示留言板
-	if (siteConfig.pages.guestbook) {
-		links.push(LinkPreset.Guestbook);
-	}
-
 	// 关于及其子菜单
 	links.push({
 		name: "关于",
@@ -37,7 +29,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 			// 关于页面
 			LinkPreset.About,
-
 			{
 				name: "我的简历",
 				url: "https://portfolio.white-festa.net",
@@ -47,8 +38,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 			// 根据配置决定是否添加番组计划，在siteConfig关闭pages.bangumi时导航栏不显示番组计划
 			...(siteConfig.pages.bangumi ? [LinkPreset.Bangumi] : []),
-
-
 		],
 	});
 
@@ -68,13 +57,20 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
+	// 根据配置决定是否添加留言板，在siteConfig关闭pages.guestbook时导航栏不显示留言板
+	if (siteConfig.pages.guestbook) {
+		links.push(LinkPreset.Guestbook);
+	}
 
-	links.push({
-		name: "开往",
-		url: "https://www.travellings.cn/go.html",
-		icon: "material-symbols:train",
-		external: true,
-	});
+	// 友链
+	links.push(LinkPreset.Friends);
+
+	// links.push({
+	// 	name: "开往",
+	// 	url: "https://www.travellings.cn/go.html",
+	// 	icon: "material-symbols:train",
+	// 	external: true,
+	// });
 	// 仅返回链接，其它导航搜索相关配置在模块顶层常量中独立导出
 	return { links } as NavBarConfig;
 };
