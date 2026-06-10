@@ -55,6 +55,15 @@ export const friendsConfig: FriendLink[] = [
 		weight: 17, // 权重，数字越大排序越靠前
 		enabled: true, // 是否启用
 	},
+	{
+		title: "十三",
+		imgurl: "https://blog.nw177.cn/assets/avatar.webp",
+		desc: "欲买桂花同载酒，终不似，少年游。",
+		siteurl: "https://blog.nw177.cn",
+		tags: ["Blog"],
+		weight: 16, // 权重，数字越大排序越靠前
+		enabled: true, // 是否启用
+	},
 ];
 
 // 获取启用的友链并进行排序
