@@ -29,33 +29,27 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 			// 关于页面
 			LinkPreset.About,
-			{
-				name: "我的简历",
-				url: "https://portfolio.white-festa.net",
-				external: true,
-				icon: "fa7-solid:file",
-			},
 
 			// 根据配置决定是否添加番组计划，在siteConfig关闭pages.bangumi时导航栏不显示番组计划
 			...(siteConfig.pages.bangumi ? [LinkPreset.Bangumi] : []),
 		],
 	});
 
-	links.push({
-		name: "项目",
-		url: "/projects/",
-		icon: "material-symbols:star",
+	// links.push({
+	// 	name: "项目",
+	// 	url: "/projects/",
+	// 	icon: "material-symbols:star",
 
-		// 子菜单
-		children: [
-			{
-				name: "Reget - 语义化正则匹配引擎",
-				url: "https://github.com/chunyiw8080/reget",
-				external: true,
-				icon: "fa7-brands:github",
-			},
-		],
-	});
+	// 	// 子菜单
+	// 	children: [
+	// 		{
+	// 			name: "Reget - 语义化正则匹配引擎",
+	// 			url: "https://github.com/chunyiw8080/reget",
+	// 			external: true,
+	// 			icon: "fa7-brands:github",
+	// 		},
+	// 	],
+	// });
 
 	// 根据配置决定是否添加留言板，在siteConfig关闭pages.guestbook时导航栏不显示留言板
 	if (siteConfig.pages.guestbook) {
@@ -64,6 +58,40 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 
 	// 友链
 	links.push(LinkPreset.Friends);
+
+	links.push({
+		name: "我的站点",
+		url: "/sites/",
+		icon: "material-symbols:star",
+
+		// 子菜单
+		children: [
+			{
+				name: "Images - 博客图床",
+				url: "https://images.white-festa.net/dashboard",
+				external: true,
+				icon: "fa7-solid:image",
+			},
+			{
+				name: "Adocs - 实施文档",
+				url: "https://adocs.white-festa.net/",
+				external: true,
+				icon: "fa7-solid:pen",
+			},
+			{
+				name: "Harbor - 个人镜像站",
+				url: "https://harbor.white-festa.net:40443/harbor/projects",
+				external: true,
+				icon: "fa7-solid:cloud",
+			},
+			{
+				name: "Portfolio - 个人简历",
+				url: "https://portfolio.white-festa.net",
+				external: true,
+				icon: "fa7-solid:file",
+			},
+		],
+	});
 
 	// links.push({
 	// 	name: "开往",
