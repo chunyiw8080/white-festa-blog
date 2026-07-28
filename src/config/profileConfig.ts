@@ -1,4 +1,4 @@
-import type { ProfileConfig } from "../types/config";
+import type { ProfileConfig } from "../types/profileConfig";
 
 export const profileConfig: ProfileConfig = {
 	// 头像
@@ -6,10 +6,11 @@ export const profileConfig: ProfileConfig = {
 	// 1. public 目录（以 "/" 开头，不优化）："/assets/images/avatar.webp"
 	// 2. src 目录（不以 "/" 开头，自动优化但会增加构建时间，推荐）："assets/images/avatar.webp"
 	// 3. 远程 URL："https://example.com/avatar.jpg"
-	// 头像
 	avatar: "https://images.white-festa.net/file/avatar/1780807307801_avatar2.webp",
+
 	// 名字
 	name: "FreelyTomorrow",
+
 	// 个人签名
 	bio: "If you shout loud enough, you'll be the one.",
 

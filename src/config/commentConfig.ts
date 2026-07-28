@@ -1,4 +1,4 @@
-import type { CommentConfig } from "../types/config";
+import type { CommentConfig } from "../types/commentConfig";
 
 export const commentConfig: CommentConfig = {
 	// 评论系统类型: none, twikoo, waline, giscus, disqus, artalk，默认为none，即不启用评论系统
@@ -11,6 +11,13 @@ export const commentConfig: CommentConfig = {
 		lang: "zh-CN",
 		// 是否启用文章访问量统计功能
 		visitorCount: true,
+		// Twikoo JS 文件地址，支持 CDN 链接
+		// 中国推荐1: https://registry.npmmirror.com/twikoo/1.7.14/files/dist/twikoo.min.js
+		// 中国推荐2: https://s4.zstatic.net/npm/twikoo@1.7.14/dist/twikoo.min.js
+		// 国际推荐: https://cdn.jsdelivr.net/npm/twikoo@1.7.14/dist/twikoo.min.js
+		jsUrl: "https://cdn.jsdelivr.net/npm/twikoo@1.7.14/dist/twikoo.min.js",
+		// Twikoo 自定义 CSS 文件地址，为空则不加载
+		cssUrl: "/assets/css/twikoo-custom.css",
 	},
 
 	//waline评论系统配置
@@ -45,18 +52,29 @@ export const commentConfig: CommentConfig = {
 	},
 
 	//giscus评论系统配置
-		giscus: {
-		repo: "chunyiw8080/white-festa-blog", // 设置 Giscus 评论系统仓库
-		repoId: "R_kgDOQteEpQ", // 设置 Giscus 评论系统仓库ID
-		category: "General", // 设置 Giscus 评论系统分类
-		categoryId: "DIC_kwDOQteEpc4C0Jc6", // 设置 Giscus 评论系统分类ID
-		mapping: "pathname", // 设置 Giscus 评论系统映射方式
-		strict: "0", // 设置 Giscus 评论系统严格模式
-		reactionsEnabled: "1", // 设置 Giscus 评论系统反应功能
-		emitMetadata: "0", // 设置 Giscus 评论系统元数据
-		inputPosition: "top", // 设置 Giscus 评论系统输入位置
-		lang: "zh-CN", // 设置 Giscus 评论系统语言
-		loading: "lazy", // 设置 Giscus 评论系统加载方式
+	giscus: {
+		// 设置 Giscus 评论系统仓库
+		repo: "chunyiw8080/white-festa-blog",
+		// 设置 Giscus 评论系统仓库ID
+		repoId: "R_kgDOQteEpQ",
+		// 设置 Giscus 评论系统分类
+		category: "General",
+		// 获取 Giscus 评论系统分类ID
+		categoryId: "DIC_kwDOQteEpc4C0Jc6",
+		// 获取 Giscus 评论系统映射方式
+		mapping: "pathname",
+		// 获取 Giscus 评论系统严格模式
+		strict: "0",
+		// 获取 Giscus 评论系统反应功能
+		reactionsEnabled: "1",
+		// 获取 Giscus 评论系统元数据功能
+		emitMetadata: "0",
+		// 获取 Giscus 评论系统输入位置
+		inputPosition: "top",
+		// 获取 Giscus 评论系统语言
+		lang: "zh-CN",
+		// 获取 Giscus 评论系统加载方式
+		loading: "lazy",
 	},
 
 	//disqus评论系统配置

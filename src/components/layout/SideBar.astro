@@ -4,21 +4,23 @@ import Advertisement from "@/components/widget/Advertisement.astro";
 import Announcement from "@/components/widget/Announcement.astro";
 import Calendar from "@/components/widget/Calendar.astro";
 import Categories from "@/components/widget/Categories.astro";
+import Dynamic from "@/components/widget/Dynamic.astro";
 import Music from "@/components/widget/Music.astro";
 import Profile from "@/components/widget/Profile.astro";
 import SidebarTOC from "@/components/widget/SidebarTOC.astro";
+import SiteInfo from "@/components/widget/SiteInfo.astro";
 import SiteStats from "@/components/widget/SiteStats.astro";
 import Tags from "@/components/widget/Tags.astro";
 import { sidebarLayoutConfig } from "@/config";
 import type {
 	MobileBottomComponentConfig,
 	WidgetComponentConfig,
-	WidgetComponentType,
 } from "@/types/config";
 
 interface Props {
 	class?: string;
 	headings?: MarkdownHeading[];
+	encrypted?: boolean;
 	side?: "left" | "right" | "bottom";
 }
 
@@ -49,7 +51,9 @@ const componentMap = {
 	stats: SiteStats,
 	calendar: Calendar,
 	music: Music,
-} satisfies Record<WidgetComponentType, typeof Profile>;
+	siteInfo: SiteInfo,
+	dynamic: Dynamic,
+};
 
 // 获取侧边栏位置
 const side = (Astro.props.side ||
@@ -101,6 +105,27 @@ const getAnimationDelay = (index: number): string => {
 // 判断当前页面是否为文章页面（服务端渲染时确定）
 const isPostPage = Astro.url.pathname.includes("/posts/");
 
+// 判断组件在当前页面首屏是否可见（用于计算布局间距，避免隐藏组件占位）
+const isComponentInitiallyVisible = (
+	config: WidgetComponentConfig | MobileBottomComponentConfig,
+): boolean => {
+	if (
+		"showOnPostPage" in config &&
+		config.showOnPostPage === false &&
+		isPostPage
+	) {
+		return false;
+	}
+	if (
+		"hideOnNonPostPage" in config &&
+		config.hideOnNonPostPage === true &&
+		!isPostPage
+	) {
+		return false;
+	}
+	return true;
+};
+
 // 动态构建组件 props
 const getComponentProps = (
 	config: WidgetComponentConfig | MobileBottomComponentConfig,
@@ -109,9 +134,10 @@ const getComponentProps = (
 	const baseProps: Record<string, unknown> = {
 		class: "onload-animation",
 		style: `animation-delay: ${getAnimationDelay(index)}`,
+		widgetConfig: config,
 	};
 
-	// 添加 showOnPostPage 和 showOnNonPostPage 标记class（仅WidgetComponentConfig有这些属性）
+	// 添加 showOnPostPage 和 hideOnNonPostPage 标记class（仅WidgetComponentConfig有这些属性）
 	// 同时根据当前页面类型在服务端渲染时设置初始 hidden 状态，避免页面加载时闪烁
 	if ("showOnPostPage" in config && config.showOnPostPage === false) {
 		baseProps.class = `${baseProps.class} widget-hide-on-post`;
@@ -119,7 +145,7 @@ const getComponentProps = (
 			baseProps.class = `${baseProps.class} hidden`;
 		}
 	}
-	if ("showOnNonPostPage" in config && config.showOnNonPostPage === false) {
+	if ("hideOnNonPostPage" in config && config.hideOnNonPostPage === true) {
 		baseProps.class = `${baseProps.class} widget-hide-on-non-post`;
 		if (!isPostPage) {
 			baseProps.class = `${baseProps.class} hidden`;
@@ -128,16 +154,11 @@ const getComponentProps = (
 
 	// 特殊处理 SidebarTOC 组件
 	if (config.type === "sidebarToc") {
-		return { ...baseProps, headings: Astro.props.headings || [] };
-	}
-
-	// 特殊处理 Advertisement 组件
-	if (
-		config.type === "advertisement" &&
-		"configId" in config &&
-		config.configId
-	) {
-		return { ...baseProps, configId: config.configId };
+		return {
+			...baseProps,
+			headings: Astro.props.headings || [],
+			encrypted: Astro.props.encrypted || false,
+		};
 	}
 
 	return baseProps;
@@ -153,6 +174,9 @@ const { topComponents, stickyComponents } = !isMobileBottom
 	? getComponentsByPosition(filteredComponents)
 	: { topComponents: [], stickyComponents: [] };
 const bottomComponents = isMobileBottom ? filteredComponents : [];
+const hasInitiallyVisibleTopComponents = topComponents.some(
+	isComponentInitiallyVisible,
+);
 ---
 
 {
@@ -172,7 +196,12 @@ const bottomComponents = isMobileBottom ? filteredComponents : [];
 				<>
 					{/* Top components */}
 					{topComponents.length > 0 && (
-						<div class="flex flex-col w-full gap-4 mb-4">
+						<div
+							class:list={[
+								"flex flex-col w-full gap-4",
+								hasInitiallyVisibleTopComponents && "mb-4",
+							]}
+						>
 							{topComponents.map((comp, index) => {
 								const Component = componentMap[comp.type];
 								if (!Component) return null;
@@ -187,9 +216,9 @@ const bottomComponents = isMobileBottom ? filteredComponents : [];
 						<div
 							id={`${side}-sidebar-sticky`}
 							class:list={[
-								"transition-all duration-700 flex flex-col w-full mt-0",
+								"flex flex-col w-full mt-0 gap-4",
 								"sticky",
-								topComponents.length > 0 ? "top-4 gap-4" : "top-0",
+								hasInitiallyVisibleTopComponents ? "top-4" : "top-0",
 							]}
 						>
 							{stickyComponents.map((comp, index) => {

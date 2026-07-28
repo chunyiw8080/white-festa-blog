@@ -13,10 +13,34 @@ enum I18nKey {
 
 	tags = "tags",
 	categories = "categories",
+	allCategories = "allCategories",
+	allTags = "allTags",
 	recentPosts = "recentPosts",
 	postList = "postList",
 	tableOfContents = "tableOfContents",
+	tocEmpty = "tocEmpty",
 	music = "music",
+
+	// 动态
+	dynamic = "dynamic",
+	latestDynamics = "latestDynamics",
+	moreDynamics = "moreDynamics",
+	dynamicDescription = "dynamicDescription",
+	dynamicEmpty = "dynamicEmpty",
+	dynamicSearch = "dynamicSearch",
+	dynamicNoResults = "dynamicNoResults",
+	dynamicLoading = "dynamicLoading",
+	dynamicAllYears = "dynamicAllYears",
+	dynamicLoadMore = "dynamicLoadMore",
+	dynamicBackToList = "dynamicBackToList",
+	dynamicProfile = "dynamicProfile",
+	dynamicPermalink = "dynamicPermalink",
+	dynamicCollapseGallery = "dynamicCollapseGallery",
+	dynamicViewOriginal = "dynamicViewOriginal",
+	dynamicPreviousImage = "dynamicPreviousImage",
+	dynamicNextImage = "dynamicNextImage",
+	dynamicViewImage = "dynamicViewImage",
+	dynamicSelectImage = "dynamicSelectImage",
 
 	// 公告栏
 	announcement = "announcement",
@@ -38,6 +62,8 @@ enum I18nKey {
 	minutesCount = "minutesCount",
 	postCount = "postCount",
 	postsCount = "postsCount",
+	tagsCount = "tagsCount",
+	noData = "noData",
 
 	// Music Widget
 	musicNoPlaying = "musicNoPlaying",
@@ -66,6 +92,7 @@ enum I18nKey {
 	systemMode = "systemMode",
 
 	more = "more",
+	collapse = "collapse",
 	all = "all",
 
 	author = "author",
@@ -75,6 +102,8 @@ enum I18nKey {
 	license = "license",
 	friends = "friends",
 	friendsDescription = "friendsDescription",
+	searchFriends = "searchFriends",
+	friendsEmpty = "friendsEmpty",
 	guestbook = "guestbook",
 	guestbookDescription = "guestbookDescription",
 	bangumi = "bangumi",
@@ -125,6 +154,10 @@ enum I18nKey {
 	bangumiTotalPages = "bangumiTotalPages",
 	bangumiPage = "bangumiPage",
 
+	// 番组错误
+	bangumiFetchError = "bangumiFetchError",
+	bangumiFetchErrorDesc = "bangumiFetchErrorDesc",
+
 	// 番组分类
 	bangumiCategoryBook = "bangumiCategoryBook",
 	bangumiCategoryAnime = "bangumiCategoryAnime",
@@ -136,6 +169,44 @@ enum I18nKey {
 	bangumiLastUpdated = "bangumiLastUpdated",
 	bangumiUpdatedAt = "bangumiUpdatedAt",
 	bangumiDataStatic = "bangumiDataStatic",
+
+	// 追番
+	anime = "anime",
+	animeSubtitle = "animeSubtitle",
+	animeTotal = "animeTotal",
+	animeAverageRating = "animeAverageRating",
+	animeSearch = "animeSearch",
+	animeAllTypes = "animeAllTypes",
+	animeTV = "animeTV",
+	animeMovie = "animeMovie",
+	animeRatingDesc = "animeRatingDesc",
+	animeRatingAsc = "animeRatingAsc",
+	animeDateDesc = "animeDateDesc",
+	animeDateAsc = "animeDateAsc",
+	animeNoResults = "animeNoResults",
+	animeLastUpdated = "animeLastUpdated",
+	animeSource = "animeSource",
+	animeEpStatus = "animeEpStatus",
+	animeViewDetails = "animeViewDetails",
+	animeNotConfigured = "animeNotConfigured",
+	animeNotConfiguredDesc = "animeNotConfiguredDesc",
+	animeBilibiliAvg = "animeBilibiliAvg",
+	animeTmdbAvg = "animeTmdbAvg",
+	animeDualSynced = "animeDualSynced",
+	animeNoOverview = "animeNoOverview",
+	animeClose = "animeClose",
+	animeSynopsis = "animeSynopsis",
+	animeWatchNow = "animeWatchNow",
+	animeViewTmdb = "animeViewTmdb",
+	animeAllWithCount = "animeAllWithCount",
+	animeTVWithCount = "animeTVWithCount",
+	animeMovieWithCount = "animeMovieWithCount",
+	animeTypeAnime = "animeTypeAnime",
+	animeTypeMovie = "animeTypeMovie",
+	animeTypeDocumentary = "animeTypeDocumentary",
+	animeTypeChinese = "animeTypeChinese",
+	animeTypeDrama = "animeTypeDrama",
+	animeTypeConcert = "animeTypeConcert",
 
 	// 分页
 	paginationFirst = "paginationFirst",
@@ -195,6 +266,8 @@ enum I18nKey {
 	randomPosts = "randomPosts",
 	smartRecommend = "smartRecommend",
 	randomRecommend = "randomRecommend",
+	noRelatedPosts = "noRelatedPosts",
+	noRandomPosts = "noRandomPosts",
 
 	// 加密
 	postEncrypted = "postEncrypted",
@@ -202,24 +275,39 @@ enum I18nKey {
 	// 壁纸模式
 	wallpaperMode = "wallpaperMode",
 	wallpaperBannerMode = "wallpaperBannerMode",
+	wallpaperFullscreenMode = "wallpaperFullscreenMode",
 	wallpaperOverlayMode = "wallpaperOverlayMode",
 	wallpaperNoneMode = "wallpaperNoneMode",
 
-	// 横幅设置
-	bannerSettings = "bannerSettings",
-	bannerTitle = "bannerTitle",
+	// 壁纸设置
+	wallpaperSettings = "wallpaperSettings",
+	wallpaperTitle = "wallpaperTitle",
+	wallpaperCarousel = "wallpaperCarousel",
 	wavesAnimation = "wavesAnimation",
+	gradientTransition = "gradientTransition",
+	sakuraEffect = "sakuraEffect",
+	effectsSettings = "effectsSettings",
 	overlaySettings = "overlaySettings",
 	overlayOpacity = "overlayOpacity",
 	overlayBlur = "overlayBlur",
 	overlayCardOpacity = "overlayCardOpacity",
+
+	// 设置面板标签
+	settingsTabAppearance = "settingsTabAppearance",
+	settingsTabWallpaper = "settingsTabWallpaper",
+	settingsTabEffects = "settingsTabEffects",
+
+	// 卡片样式
+	cardSettings = "cardSettings",
+	cardBorder = "cardBorder",
+	cardFollowTheme = "cardFollowTheme",
 
 	// 文章布局
 	postListLayout = "postListLayout",
 	postListLayoutList = "postListLayoutList",
 	postListLayoutGrid = "postListLayoutGrid",
 
-	// 赞助页面
+	// 打赏页面
 	sponsor = "sponsor",
 	sponsorTitle = "sponsorTitle",
 	sponsorDescription = "sponsorDescription",
@@ -241,6 +329,7 @@ enum I18nKey {
 	// 站点统计
 	siteStats = "siteStats",
 	siteStatsPostCount = "siteStatsPostCount",
+	siteStatsDynamicCount = "siteStatsDynamicCount",
 	siteStatsCategoryCount = "siteStatsCategoryCount",
 	siteStatsTagCount = "siteStatsTagCount",
 	siteStatsTotalWords = "siteStatsTotalWords",
@@ -249,6 +338,20 @@ enum I18nKey {
 	siteStatsDaysAgo = "siteStatsDaysAgo",
 	siteStatsDays = "siteStatsDays",
 	today = "today",
+
+	// 站点信息
+	siteInfo = "siteInfo",
+	siteInfoBuildTime = "siteInfoBuildTime",
+	siteInfoBuildPlatform = "siteInfoBuildPlatform",
+	siteInfoBlogVersion = "siteInfoBlogVersion",
+	siteInfoAstroVersion = "siteInfoAstroVersion",
+	siteInfoNodeVersion = "siteInfoNodeVersion",
+	siteInfoPnpmVersion = "siteInfoPnpmVersion",
+	siteInfoSystem = "siteInfoSystem",
+	siteInfoExpand = "siteInfoExpand",
+	siteInfoCollapse = "siteInfoCollapse",
+	siteInfoDomain = "siteInfoDomain",
+	siteInfoLicense = "siteInfoLicense",
 
 	// 日历组件
 	calendarSunday = "calendarSunday",
@@ -270,6 +373,9 @@ enum I18nKey {
 	calendarOctober = "calendarOctober",
 	calendarNovember = "calendarNovember",
 	calendarDecember = "calendarDecember",
+	calendar = "calendar",
+	calendarHeatmapWeek = "calendarHeatmapWeek",
+	advertisement = "advertisement",
 
 	shareArticle = "shareArticle",
 	generatingPoster = "generatingPoster",
@@ -291,6 +397,7 @@ enum I18nKey {
 	galleryAlbums = "galleryAlbums",
 	galleryNoAlbums = "galleryNoAlbums",
 	galleryBackToAlbums = "galleryBackToAlbums",
+	searchAlbums = "searchAlbums",
 
 	// 密码保护
 	passwordProtected = "passwordProtected",
@@ -300,6 +407,13 @@ enum I18nKey {
 	passwordSubmit = "passwordSubmit",
 	passwordError = "passwordError",
 	passwordProtectedRss = "passwordProtectedRss",
+
+	// 背景视频播放器
+	videoPlay = "videoPlay",
+	videoPause = "videoPause",
+	videoPrev = "videoPrev",
+	videoNext = "videoNext",
+	videoLoadError = "videoLoadError",
 }
 
 export default I18nKey;

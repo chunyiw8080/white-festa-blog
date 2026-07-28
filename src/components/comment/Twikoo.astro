@@ -1,25 +1,31 @@
 ---
 import { commentConfig } from "@/config/commentConfig";
 import { url } from "@/utils/url-utils";
-import "@/styles/twikoo.css";
 
 interface Props {
 	path: string;
 }
 
+const twikooConfig = commentConfig.twikoo ?? { envId: "" };
+const jsUrl =
+	twikooConfig.jsUrl ||
+	"https://registry.npmmirror.com/twikoo/1.7.13/files/dist/twikoo.min.js";
+const cssUrl = twikooConfig.cssUrl;
 const config = {
-	...commentConfig.twikoo,
+	...twikooConfig,
 	el: "#tcomment",
 	path: Astro.props.path,
 };
 ---
 
 <div id="tcomment"></div>
-<!-- 使用自编译的 Twikoo 文件，避免点赞等按钮导致页面触发滚动回顶部 https://github.com/twikoojs/twikoo/issues/721 -->
-<script is:inline src={url("/assets/js/firefly-twikoo-1.6.44.all.min.js")}></script>
+<script is:inline src={jsUrl}></script>
+{cssUrl && <link rel="stylesheet" href={cssUrl.startsWith("http") ? cssUrl : url(cssUrl)} />}
 <script is:inline define:vars={{ config }}>
   // 获取当前页面路径
   function getCurrentPath() {
+    const requestedPath = new URLSearchParams(window.location.search).get("path");
+    if (requestedPath) return requestedPath;
     const pathname = window.location.pathname;
     return pathname.endsWith("/") && pathname.length > 1
       ? pathname.slice(0, -1)

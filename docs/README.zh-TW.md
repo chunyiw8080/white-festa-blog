@@ -8,7 +8,7 @@
 > 
 > ![Node.js >= 22](https://img.shields.io/badge/node.js-%3E%3D22-brightgreen) 
 ![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue)
-![Astro](https://img.shields.io/badge/Astro-5.17.2-orange)
+![Astro](https://img.shields.io/badge/Astro-7.1.3-orange)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue)
 >
 > [![Stars](https://img.shields.io/github/stars/CuteLeaf/Firefly?style=social)](https://github.com/CuteLeaf/Firefly/stargazers)
@@ -21,21 +21,21 @@
 > 
 > ![GitHub License](https://img.shields.io/github/license/CuteLeaf/Firefly)
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/CuteLeaf/Firefly)
-[![愛發電贊助](https://img.shields.io/badge/愛發電-贊助作者-ff69b4.svg)](https://afdian.com/a/cuteleaf)
+[![愛發電打賞](https://img.shields.io/badge/愛發電-打賞作者-ff69b4.svg)](https://ifdian.net/a/cuteleaf)
 
 </div>
 
 
 ---
 📖 README：
-**[简体中文](../README.zh.md)** | **[繁體中文](README.zh-TW.md)** | **[English](../README.md)** | **[日本語](README.ja.md)** | **[Русский](README.ru.md)**
+**[简体中文](../README.md)** | **[繁體中文](README.zh-TW.md)** | **[English](../README.en.md)** | **[日本語](README.ja.md)** 
 
 🚀 快速指南：
 [**🖥️線上預覽**](https://firefly.cuteleaf.cn/) /
 [**📝使用文檔**](https://docs-firefly.cuteleaf.cn/) /
 [**🍀我的部落格**](https://blog.cuteleaf.cn) 
 
-⚡ 靜態站點生成: 基於Astro的超快載入速度和SEO優化
+⚡ 靜態站點生成: 基於 Astro 的超快載入速度和 SEO 優化
 
 🎨 現代化設計: 簡潔美觀的介面，支援自訂主題色
 
@@ -43,17 +43,32 @@
 
 🔧 高度可配置: 大部分功能模組均可透過配置檔案自訂
 
-<img alt="firefly" src="./images/1.webp" />
-<img alt="Lighthouse" src="./images/Lighthouse.png" />
+<table width="100%" align="center">
+  <tr>
+    <td colspan="3" align="center">
+      <img src="./images/1.webp" >
+      <br>橫幅模式</td>
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><img src="./images/3.webp" width="300"><br>透明模式</td>
+    <td align="center"><img src="./images/2.webp" width="300"><br>全螢幕桌布模式</td>
+    <td align="center"><img src="./images/4.webp" width="300"><br>純色模式</td>
+  </tr>
+</table>
+<img alt="Lighthouse" src="./docs/images/Lighthouse.png" />
 
 >[!TIP]
->Firefly 是一款基於 Astro 框架和 Fuwari 模板開發的清新美觀且現代化個人部落格主題模板，專為技術愛好者和內容創作者設計。該主題融合了現代 Web 技術棧，提供了豐富的功能模組和高度可定制的界面，讓您能夠輕鬆打造出專業且美觀的個人部落格網站。
 >
->在重要的版面配置上，Firefly 創新性地增加了左右雙側邊欄、文章網格(多列)版面配置、瀑布流配置，增加了站點統計、日曆元件、文章目錄等小元件，讓側邊欄更加豐富，同時也保留了原版 fuwari 的版面配置，可根據自己的喜好在配置檔案中自由切換。
+>Firefly 是一款基於 Astro 框架和 Fuwari 模板開發的清新美觀且現代化個人部落格主題模板，專為技術愛好者和內容創作者設計。該主題融合了現代 Web 技術棧，提供了豐富的功能模組和高度可自訂的介面，讓您能夠輕鬆打造出專業且美觀的個人部落格網站。
 >
->**更多版面配置及示範請查看：[Firefly 版面配置系統詳解](https://firefly.cuteleaf.cn/posts/firefly-layout-system/)**
+>**如果你參考或使用了 Firefly 元件設計和相關程式碼，請註明來自 Firefly。**
 >
->Firefly 支援 i18n 多語言切換，但除了簡體中文，其他語言均為 AI 翻譯轉換，如有錯誤，歡迎提交 [Pull Request](https://github.com/CuteLeaf/Firefly/pulls) 修正。
+>Firefly 也保留了原版 fuwari 的版面，可根據自己的喜好在配置檔案中自由切換。
+>
+>**更多版面配置及示範請查看：[Firefly 版面配置系統詳解](https://firefly.cuteleaf.cn/posts/guide/firefly-layout-system/)**
+>
+>Firefly 支援 i18n 多語言 UI，但除了簡體中文，其他語言均為 AI 翻譯轉換，如有錯誤，歡迎提交 [Pull Request](https://github.com/CuteLeaf/Firefly/pulls) 修正。
 
 ## ✨ 功能特性
 
@@ -62,7 +77,7 @@
 - [x] **Astro + Tailwind CSS** - 基於現代技術堆疊的超快靜態站點生成
 - [x] **流暢動畫** - Swup 頁面過渡動畫，提供絲滑的瀏覽體驗
 - [x] **響應式設計** - 完美適配桌面端、平板和行動裝置
-- [x] **多語言支援** - i18n 國際化，支援簡體中文、繁體中文、英文、日文、俄語
+- [x] **多語言支援** - i18n 國際化UI，支援簡體中文、繁體中文、英文、日文、俄語、韓文
 - [x] **全文搜尋** - 基於 Pagefind 的客戶端搜尋，支援文章內容索引。
 
 ### 個性化
@@ -72,7 +87,7 @@
 - [x] **頁尾配置** - HTML 內容注入，完全自訂
 - [x] **亮暗色模式** - 支援亮色/暗色/跟隨系統三種模式
 - [x] **導覽列自訂** - Logo、標題、連結全面自訂
-- [x] **桌布模式切換** - 橫幅桌布、全螢幕桌布、純色背景
+- [x] **桌布模式切換** - 橫幅桌布、全螢幕桌布、全螢幕透明桌布、純色背景
 - [x] **主題色自訂** - 360° 色相調節
 
 
@@ -117,6 +132,9 @@
    ```
    部落格將在 `http://localhost:4321` 可用
 
+### 社區教程
+Cloudflare Workers 部署：[【不用服务器，无需备案，零成本搭建一个自己的个人博客】](https://www.bilibili.com/video/BV1hX9XBKEhm)
+
 ### 平台託管部署
 - **參考[官方指南](https://docs.astro.build/zh-cn/guides/deploy/)將部落格部署至 Vercel, Netlify, Cloudflare Pages, EdgeOne Pages 等。**
 - **Vercel**、**Netlify** 等主流平台自動部署，會根據環境自動選擇適配器。
@@ -153,33 +171,37 @@ const SITE_LANG = "zh_CN";
 - `en` - 英文
 - `ja` - 日文
 - `ru` - 俄文
+- `ko` - 韓文
 
 ### 配置檔案結構
 
 ```
 src/
 ├── config/
-│   ├── index.ts              # 配置索引檔案
-│   ├── siteConfig.ts         # 站點基礎配置
-│   ├── backgroundWallpaper.ts # 背景桌布配置
-│   ├── profileConfig.ts      # 使用者資料配置
-│   ├── commentConfig.ts      # 留言系統配置
-│   ├── announcementConfig.ts # 公告配置
-│   ├── licenseConfig.ts      # 授權配置
-│   ├── footerConfig.ts       # 頁尾配置
-│   ├── FooterConfig.html     # 頁尾HTML內容
-│   ├── expressiveCodeConfig.ts # 程式碼高亮配置
-│   ├── sakuraConfig.ts       # 櫻花特效配置
-│   ├── fontConfig.ts         # 字型配置
-│   ├── sidebarConfig.ts      # 側邊欄版面配置配置
-│   ├── navBarConfig.ts       # 導覽列配置
-│   ├── musicConfig.ts        # 音樂播放器配置
-│   ├── pioConfig.ts          # 看板娘配置
-│   ├── adConfig.ts           # 廣告配置
-│   ├── friendsConfig.ts      # 友鏈配置
-│   ├── galleryConfig.ts      # 相簿配置
-│   ├── sponsorConfig.ts      # 贊助配置
-│   └── coverImageConfig.ts   # 文章隨機封面圖配置
+│   ├── index.ts                  # 配置索引檔案
+│   ├── siteConfig.ts             # 站點基礎配置
+│   ├── analyticsConfig.ts        # 統計分析配置
+│   ├── announcementConfig.ts     # 公告配置
+│   ├── backgroundWallpaper.ts    # 背景桌布配置
+│   ├── commentConfig.ts          # 留言系統配置
+│   ├── coverImageConfig.ts       # 封面圖配置
+│   ├── displaySettingsConfig.ts  # 設置面板配置
+│   ├── dynamicConfig.ts          # 動態頁面配置
+│   ├── effectsConfig.ts          # 動畫特效配置（櫻花等）
+│   ├── expressiveCodeConfig.ts   # 程式碼高亮配置
+│   ├── fontConfig.ts             # 字型配置
+│   ├── footerConfig.ts           # 頁尾配置
+│   ├── friendsConfig.ts          # 友鏈配置
+│   ├── galleryConfig.ts          # 相簿配置
+│   ├── licenseConfig.ts          # 授權配置
+│   ├── musicConfig.ts            # 音樂播放器配置
+│   ├── navBarConfig.ts           # 導覽列配置
+│   ├── pioConfig.ts              # 看板娘配置
+│   ├── mermaidConfig.ts          # Mermaid 圖表配置
+│   ├── plantumlConfig.ts         # PlantUML 圖表配置
+│   ├── profileConfig.ts          # 使用者資料配置
+│   ├── sidebarConfig.ts          # 側邊欄版面配置
+│   └── sponsorConfig.ts          # 打賞配置
 ```
 
 
@@ -199,6 +221,28 @@ pinned: false    # 置頂
 comment: true    # 是否允許留言
 ---
 ```
+## 動態
+
+動態檔案存放於 `src/content/dynamic/`，每個 Markdown 檔案代表一則動態。可使用快捷命令建立：
+
+```bash
+pnpm new-d 今天天氣真不錯
+```
+
+`pnpm new-dynamic <content>` 是功能相同的完整命令。
+
+```yaml
+---
+published: 2026-07-15 16:15:29
+pinned: true  # 置頂
+location: China # 位置
+---
+
+動態內容支援 Markdown 語法。
+```
+
+也支援對接 [Memos](https://www.usememos.com/) 作為資料來源，在 `src/config/dynamicConfig.ts` 中設定 `memos` 選項即可即時取得 Memos 動態，支援置頂同步和圖片附件展示。詳見[動態檔案](https://docs-firefly.cuteleaf.cn/zh/guide/dynamic.html)。
+
 ## 🧩 Markdown 擴充語法
 
 除了 Astro 預設支援的 [GitHub Flavored Markdown](https://github.github.com/gfm/) 之外，還包含了一些額外的 Markdown 功能：
@@ -210,17 +254,19 @@ comment: true    # 是否允許留言
 
 下列指令均需要在專案根目錄執行：
 
-| Command                    | Action                                              |
-|:---------------------------|:----------------------------------------------------|
-| `pnpm install`             | 安裝依賴                                            |
-| `pnpm dev`                 | 在 `localhost:4321` 啟動本地開發伺服器              |
-| `pnpm build`               | 建置網站至 `./dist/`                                |
-| `pnpm preview`             | 本地預覽已建置的網站                                |
-| `pnpm check`               | 檢查程式碼中的錯誤                                  |
-| `pnpm format`              | 使用 Biome 格式化您的程式碼                         |
-| `pnpm new-post <filename>` | 建立新文章                                          |
-| `pnpm astro ...`           | 執行 `astro add`, `astro check` 等指令              |
-| `pnpm astro --help`        | 顯示 Astro CLI 說明                                 |
+| Command                    | Action                                 |
+| :------------------------- | :------------------------------------- |
+| `pnpm install`             | 安裝依賴                               |
+| `pnpm dev`                 | 在 `localhost:4321` 啟動本地開發伺服器 |
+| `pnpm build`               | 建置網站至 `./dist/`                   |
+| `pnpm preview`             | 本地預覽已建置的網站                   |
+| `pnpm check`               | 檢查程式碼中的錯誤                     |
+| `pnpm format`              | 使用 Biome 格式化您的程式碼            |
+| `pnpm new-post <filename>` | 建立新文章                             |
+| `pnpm new-d <content>`     | 建立一則動態                           |
+| `pnpm new-dynamic <content>` | 建立一則動態（完整命令）             |
+| `pnpm astro ...`           | 執行 `astro add`, `astro check` 等指令 |
+| `pnpm astro --help`        | 顯示 Astro CLI 說明                    |
 
 ## 🙏 致謝
 
@@ -243,7 +289,7 @@ comment: true    # 是否允許留言
 
 ### 其他參考
 - 部落客`霞葉`的 [Bangumi 收藏](https://kasuha.com/posts/fuwari-enhance-ep2/) 頁面元件
-- 嗶哩嗶哩up主 `公公的日常` 的Q版 [流螢看板娘Spine切片資料](https://www.bilibili.com/video/BV1fuVzzdE5y)
+- 嗶哩嗶哩up主 `公公的日常` 的Q版 [流螢看板娘 Spine 切片資料](https://www.bilibili.com/video/BV1fuVzzdE5y)
 
 ## 📝 許可協議
 

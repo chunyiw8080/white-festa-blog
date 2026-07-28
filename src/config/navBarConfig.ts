@@ -1,70 +1,30 @@
 import {
-	LinkPreset,
 	type NavBarConfig,
 	type NavBarLink,
 	type NavBarSearchConfig,
 	NavBarSearchMethod,
-} from "../types/config";
-import { siteConfig } from "./siteConfig";
+} from "../types/navBarConfig";
 
-// 根据页面开关动态生成导航栏配置
 const getDynamicNavBarConfig = (): NavBarConfig => {
-	// 基础导航栏链接
-	const links: (NavBarLink | LinkPreset)[] = [
-		// 主页
-		LinkPreset.Home,
-
-		// 归档
-		LinkPreset.Archive,
+	const links: NavBarLink[] = [
+		LinkPresets.Home,
+		LinkPresets.Archive,
+		LinkPresets.Dynamic,
 	];
 
-	// 关于及其子菜单
 	links.push({
 		name: "关于",
-		url: "/content/",
+		url: "#",
 		icon: "material-symbols:info",
-		children: [
-			// 根据配置决定是否添加赞助，在siteConfig关闭pages.sponsor时导航栏不显示赞助
-			...(siteConfig.pages.sponsor ? [LinkPreset.Sponsor] : []),
-
-			// 关于页面
-			LinkPreset.About,
-
-			// 根据配置决定是否添加番组计划，在siteConfig关闭pages.bangumi时导航栏不显示番组计划
-			...(siteConfig.pages.bangumi ? [LinkPreset.Bangumi] : []),
-		],
+		children: [LinkPresets.Sponsor, LinkPresets.About, LinkPresets.Bangumi],
 	});
 
-	// links.push({
-	// 	name: "项目",
-	// 	url: "/projects/",
-	// 	icon: "material-symbols:star",
-
-	// 	// 子菜单
-	// 	children: [
-	// 		{
-	// 			name: "Reget - 语义化正则匹配引擎",
-	// 			url: "https://github.com/chunyiw8080/reget",
-	// 			external: true,
-	// 			icon: "fa7-brands:github",
-	// 		},
-	// 	],
-	// });
-
-	// 根据配置决定是否添加留言板，在siteConfig关闭pages.guestbook时导航栏不显示留言板
-	if (siteConfig.pages.guestbook) {
-		links.push(LinkPreset.Guestbook);
-	}
-
-	// 友链
-	links.push(LinkPreset.Friends);
+	links.push(LinkPresets.Guestbook, LinkPresets.Friends);
 
 	links.push({
 		name: "我的站点",
-		url: "/sites/",
+		url: "#",
 		icon: "material-symbols:star",
-
-		// 子菜单
 		children: [
 			{
 				name: "Images - 博客图床",
@@ -93,19 +53,81 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		],
 	});
 
-	// links.push({
-	// 	name: "开往",
-	// 	url: "https://www.travellings.cn/go.html",
-	// 	icon: "material-symbols:train",
-	// 	external: true,
-	// });
-	// 仅返回链接，其它导航搜索相关配置在模块顶层常量中独立导出
 	return { links } as NavBarConfig;
 };
 
-// 导航搜索配置
 export const navBarSearchConfig: NavBarSearchConfig = {
 	method: NavBarSearchMethod.PageFind,
+};
+
+export const LinkPresets: Record<string, NavBarLink> = {
+	Home: {
+		name: "主页",
+		url: "/",
+		icon: "material-symbols:home",
+	},
+	Dynamic: {
+		name: "动态",
+		url: "/dynamic/",
+		icon: "material-symbols:forum-rounded",
+		pageKey: "dynamic",
+	},
+	Archive: {
+		name: "归档",
+		url: "/archive/",
+		icon: "material-symbols:archive",
+	},
+	Categories: {
+		name: "分类",
+		url: "/categories/",
+		icon: "material-symbols:category",
+	},
+	Tags: {
+		name: "标签",
+		url: "/tags/",
+		icon: "material-symbols:tag-rounded",
+	},
+	Friends: {
+		name: "友链",
+		url: "/friends/",
+		icon: "material-symbols:supervisor-account-rounded",
+		pageKey: "friends",
+	},
+	Guestbook: {
+		name: "留言",
+		url: "/guestbook/",
+		icon: "material-symbols:chat",
+		pageKey: "guestbook",
+	},
+	Gallery: {
+		name: "相册",
+		url: "/gallery/",
+		icon: "material-symbols:photo-library",
+		pageKey: "gallery",
+	},
+	Anime: {
+		name: "追番",
+		url: "/anime/",
+		icon: "material-symbols:live-tv",
+		pageKey: "anime",
+	},
+	Bangumi: {
+		name: "番组计划",
+		url: "/bangumi/",
+		icon: "material-symbols:movie-outline-rounded",
+		pageKey: "bangumi",
+	},
+	Sponsor: {
+		name: "打赏",
+		url: "/sponsor/",
+		icon: "material-symbols:coffee-rounded",
+		pageKey: "sponsor",
+	},
+	About: {
+		name: "关于",
+		url: "/about/",
+		icon: "material-symbols:info",
+	},
 };
 
 export const navBarConfig: NavBarConfig = getDynamicNavBarConfig();

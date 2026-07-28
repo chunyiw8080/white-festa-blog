@@ -152,7 +152,7 @@ $: if (initialized && (keywordMobile || keywordMobile === "")) {
 
 <!-- toggle btn for phone/tablet view -->
 <button on:click={togglePanel} aria-label="Search Panel" id="search-switch"
-        class="btn-plain scale-animation lg:hidden! rounded-lg w-11 h-11 active:scale-90">
+        class="btn-plain scale-animation lg:hidden! rounded-lg w-9 h-9 md:w-11 md:h-11 active:scale-90">
     <Icon icon="material-symbols:search" class="text-[1.25rem]"></Icon>
 </button>
 
@@ -191,9 +191,6 @@ top-20 left-4 md:left-[unset] right-4 shadow-2xl rounded-2xl p-2">
                 </div>
                 {#if item.excerpt.includes('<mark>')}
                     <div class="transition text-sm text-50" style="display: flex; align-items: flex-start; margin-top: 0.1rem">
-                        <span style="display: inline-block; background-color: var(--btn-plain-bg-hover); color: var(--primary); padding: 0.1em 0.4em; border-radius: 5px; font-size: 0.75em; font-weight: 600; margin-right: 0.5em; shrink: 0;">
-                            {i18n(I18nKey.searchSummary)}
-                        </span>
                         <div>
                             {@html item.excerpt}
                         </div>

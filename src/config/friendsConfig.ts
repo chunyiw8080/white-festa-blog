@@ -1,4 +1,4 @@
-import type { FriendLink, FriendsPageConfig } from "../types/config";
+import type { FriendLink, FriendsPageConfig } from "../types/friendsConfig";
 
 // 可以在src/content/spec/friends.md中编写友链页面下方的自定义内容
 
@@ -13,6 +13,9 @@ export const friendsPageConfig: FriendsPageConfig = {
 	// 是否显示底部自定义内容（friends.mdx 中的内容）
 	showCustomContent: true,
 
+	// 是否显示评论区，需要先在commentConfig.ts启用评论系统
+	showComment: true,
+
 	// 是否开启随机排序配置，如果开启，就会忽略权重，构建时进行一次随机排序
 	randomizeSort: false,
 };
@@ -21,7 +24,8 @@ export const friendsPageConfig: FriendsPageConfig = {
 export const friendsConfig: FriendLink[] = [
 	{
 		title: "夏夜流萤",
-		imgurl: "https://q1.qlogo.cn/g?b=qq&nk=7618557&s=640",
+		imgurl:
+			"https://weavatar.com/avatar/d252655d40d6874417a720bad0a6c5f77f8f6a1fd2f882f8f338402dc37e4190?s=640",
 		desc: "飞萤之火自无梦的长夜亮起，绽放在终竟的明天。",
 		siteurl: "https://blog.cuteleaf.cn",
 		tags: ["Blog"],
@@ -34,8 +38,8 @@ export const friendsConfig: FriendLink[] = [
 		desc: "飞放置我的笔记、搜集、摘录、实践，保持好奇心。看文需谨慎，后果很严重!",
 		siteurl: "https://www.geekery.cn/",
 		tags: ["Blog"],
-		weight: 19, // 权重，数字越大排序越靠前
-		enabled: true, // 是否启用
+		weight: 19,
+		enabled: true,
 	},
 	{
 		title: "运维小弟",
@@ -43,8 +47,8 @@ export const friendsConfig: FriendLink[] = [
 		desc: "专注技术积累，探索运维之道",
 		siteurl: "https://blog.srebro.cn",
 		tags: ["Blog"],
-		weight: 18, // 权重，数字越大排序越靠前
-		enabled: true, // 是否启用
+		weight: 18,
+		enabled: true,
 	},
 	{
 		title: "二丫讲梵",
@@ -52,8 +56,8 @@ export const friendsConfig: FriendLink[] = [
 		desc: "💻学习📝记录🔗分享",
 		siteurl: "https://wiki.eryajf.net/",
 		tags: ["Blog"],
-		weight: 17, // 权重，数字越大排序越靠前
-		enabled: true, // 是否启用
+		weight: 17,
+		enabled: true,
 	},
 	{
 		title: "十三",
@@ -61,8 +65,8 @@ export const friendsConfig: FriendLink[] = [
 		desc: "欲买桂花同载酒，终不似，少年游。",
 		siteurl: "https://blog.nw177.cn",
 		tags: ["Blog"],
-		weight: 16, // 权重，数字越大排序越靠前
-		enabled: true, // 是否启用
+		weight: 16,
+		enabled: true,
 	},
 ];
 
