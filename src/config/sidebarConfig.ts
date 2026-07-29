@@ -14,11 +14,18 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			showOnPostPage: true,
 		},
 		{
-			type: "announcement",
+			type: "dynamic",
 			enable: true,
 			position: "top",
 			showOnPostPage: true,
+			specificConfig: { dynamic: { limit: 2 } },
 		},
+		// {
+		// 	type: "announcement",
+		// 	enable: true,
+		// 	position: "top",
+		// 	showOnPostPage: true,
+		// },
 		{
 			type: "categories",
 			enable: true,
@@ -41,13 +48,6 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			enable: true,
 			position: "top",
 			showOnPostPage: true,
-		},
-		{
-			type: "dynamic",
-			enable: true,
-			position: "top",
-			showOnPostPage: true,
-			specificConfig: { dynamic: { limit: 2 } },
 		},
 		{
 			type: "sidebarToc",

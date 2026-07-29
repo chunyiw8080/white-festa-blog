@@ -48,10 +48,10 @@ export const musicPlayerConfig: MusicPlayerConfig = {
 	local: {
 		playlist: [
 			{
-				name: "風を待った日",
+				name: "恋人を射ち堕とした日",
 				artist: "",
-				url: "/assets/music/風を待った日.mp3",
-				cover: "/assets/music/cover/images.jpeg",
+				url: "/assets/music/恋人を射ち堕とした日.mp3",
+				cover: "/assets/music/cover/cover.jpeg",
 				lrc: "",
 			},
 		],

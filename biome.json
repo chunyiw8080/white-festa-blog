@@ -13,6 +13,7 @@
       "!**/src/public/**/*",
       "!**/dist/**/*",
       "!**/node_modules/**/*",
+      "!**/src/content/posts/.obsidian/**/*",
       "!**/src/constants/icons-data.json",
       "!**/src/constants/lqips.json"
     ]
