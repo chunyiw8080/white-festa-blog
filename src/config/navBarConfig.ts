@@ -39,12 +39,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				icon: "fa7-solid:pen",
 			},
 			{
-				name: "Harbor - 个人镜像站",
-				url: "https://harbor.white-festa.net:40443/harbor/projects",
-				external: true,
-				icon: "fa7-solid:cloud",
-			},
-			{
 				name: "Portfolio - 个人简历",
 				url: "https://portfolio.white-festa.net",
 				external: true,

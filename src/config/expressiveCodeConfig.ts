@@ -33,7 +33,7 @@ export const expressiveCodeConfig: ExpressiveCodeConfig = {
 	// 语言Logo插件配置（在代码块右下角显示语言图标）
 	pluginLanguageLogo: {
 		// 是否启用语言Logo插件
-		enable: false,
+		enable: true,
 		// Logo颜色模式:
 		//   "mono"     - 单色模式，自动适配亮暗色主题（默认）
 		//   "original" - 使用各语言图标的原始品牌色（如JS黄色、TS蓝色等）
