@@ -79,13 +79,14 @@ export const friendsConfig: FriendLink[] = [
 	},
 	{
 		title: "ChenJi的Blog",
-		imgurl: "https://blog.chenji.me/api/blob/images/26dd92de58a22d310ee9a69def72f20c4909c6e4.png",
+		imgurl:
+			"https://blog.chenji.me/api/blob/images/26dd92de58a22d310ee9a69def72f20c4909c6e4.png",
 		desc: "会更好的",
 		siteurl: "https://blog.chenji.me/",
 		tags: ["Blog"],
 		weight: 14,
 		enabled: true,
-	}
+	},
 ];
 
 // 获取启用的友链并进行排序

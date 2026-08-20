@@ -1,11 +1,15 @@
 # build output
 dist/
 
+# generated vndb covers
+public/vndb-covers/
+
 # generated types
 .astro/
 
 # dependencies
 node_modules/
+.pnpm-store/
 
 # logs
 npm-debug.log*
@@ -32,6 +36,9 @@ yarn.lock
 
 # docs
 Firefly-docs/
+
+# lite 版本
+Firefly-Lite/
 
 cache/
 package/

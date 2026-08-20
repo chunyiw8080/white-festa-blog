@@ -1,7 +1,7 @@
 import type { AnnouncementConfig } from "../types/announcementConfig";
 
 export const announcementConfig: AnnouncementConfig = {
-	// 公告标题
+	// 公告标题，留空则走i18n默认标题
 	title: "公告 - 2025/12/21",
 
 	// 公告内容
