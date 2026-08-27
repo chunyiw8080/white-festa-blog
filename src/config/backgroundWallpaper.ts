@@ -39,7 +39,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 桌面背景图片（支持单张或多张随机）
 		// desktop: "assets/images/DesktopWallpaper/d1.avif",
 		desktop:
-			"https://images.white-festa.net/file/banner/orientation/pixiv/1787049498375_9.webp",
+			"https://images.white-festa.net/file/banner/orientation/pixiv/1774186075978_7.webp",
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
 		mobile:

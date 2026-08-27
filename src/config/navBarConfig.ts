@@ -32,12 +32,12 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				external: true,
 				icon: "fa7-solid:image",
 			},
-			{
-				name: "Adocs - 实施文档",
-				url: "https://adocs.white-festa.net/",
-				external: true,
-				icon: "fa7-solid:pen",
-			},
+			// {
+			// 	name: "Adocs - 实施文档",
+			// 	url: "https://adocs.white-festa.net/",
+			// 	external: true,
+			// 	icon: "fa7-solid:pen",
+			// },
 			{
 				name: "Portfolio - 个人简历",
 				url: "https://portfolio.white-festa.net",
