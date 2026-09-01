@@ -594,7 +594,7 @@ spec:
 
 最后，根据在IpAddressPool中声明的UAT VIP，可以在宿主机上直接访问这个服务
 
-![metallb.png](https://images.white-festa.net/file/posts/metallb/1788186594833_metallb.png)
+![测试访问](https://images.white-festa.net/file/posts/metallb/1788186594833_metallb.png)
 
 # 流量是如何经过MetalLB VIP最终进入Pod的
 先看架构图
@@ -661,3 +661,122 @@ flowchart LR
   → 根据 backendRef/Service 与 EndpointSlice 解析实际后端
   → Envoy 通过 Calico 网络直接访问 Blog Pod:8080
 ```
+
+# 配置HTTPS访问
+
+## 配置自签名证书
+1. 创建证书存放目录
+```bash
+mkdir -p /root/metallb/demo/white-festa.local
+cd /root/metallb/demo/white-festa.local
+umask 077
+```
+2. 创建证书
+```bash
+openssl req -x509 -nodes -newkey rsa:2048 \
+  -sha256 \
+  -days 365 \
+  -keyout tls.key \
+  -out tls.crt \
+  -subj "/CN=white-festa.local" \
+  -addext "subjectAltName=DNS:white-festa.local" \
+  -addext "basicConstraints=critical,CA:FALSE" \
+  -addext "keyUsage=critical,digitalSignature,keyEncipherment" \
+  -addext "extendedKeyUsage=serverAuth"
+```
+
+## 创建kubernetes tls secret
+```bash
+kubectl create secret tls white-festa-local-tls \
+  -n vip-demo \
+  --cert=/root/metallb/demo/white-festa.local/tls.crt \
+  --key=/root/metallb/demo/white-festa.local/tls.key \
+  --dry-run=client -o yaml |
+kubectl apply -f -
+```
+
+## 修改 Gateway 和 HTTPRoute
+1. 修改UAT gateway
+
+在`gateway.spec`下面增加:
+```yaml
+    - name: https
+      hostname: white-festa.local
+      protocol: HTTPS
+      port: 443
+      tls:
+        mode: Terminate
+        certificateRefs:
+          - group: ""
+            kind: Secret
+            name: white-festa-local-tls
+      allowedRoutes:
+        namespaces:
+          from: Same
+```
+
+其中`mode: Terminate`意味着客户端发起的 TLS 连接在 Envoy Gateway 处终止并解密。也就说说，客户端到Envoy Pod的请求是HTTPS协议，Envoy Pod转发请求到后端Pod走的是HTTP协议。
+
+
+如果后端也需要走HTTPS，这被叫做`TLS 重加密`，在此demo中，需要后端Pod中的Nginx同样支持HTTPS协议，也就是说，TLS证书需要挂载到Pod中，Nginx配置文件也需要配置相应的HTTPS listener
+
+
+之后，还需要声明一个`BackendTLSPolicy`资源，确保Envoy Pod到后端也走HTTPS加密。TLS重加密一般在对安全标准要求较高的服务中，比如支付，访问敏感数据等，一般的Web服务在Envoy Pod处终止HTTPS并解密就可以了，在访问量高时也有性能优势。这里就先不配置了。
+
+2. 修改white-festa-blog的HTTPRoute
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: white-festa-blog
+  namespace: vip-demo
+spec:
+  parentRefs:
+    - name: uat
+      sectionName: http
+      # 绑定uat gateway中名为https的端口和配置
+    - name: uat
+      sectionName: https
+
+  hostnames:
+    - white-festa.local
+
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: white-festa-blog
+          port: 8080
+```
+
+然后重新apply这两份文件
+
+## 验证
+1. 指定证书验证
+```bash
+curl --resolve white-festa.local:443:10.211.55.251 \
+  --cacert /root/metallb/demo/white-festa.local/tls.crt \
+  -I https://white-festa.local/
+```
+会得到以下结果:
+```text
+HTTP/2 200 
+server: nginx/1.29.8
+date: Tue, 01 Sep 2026 03:48:14 GMT
+content-type: text/html
+content-length: 740262
+last-modified: Mon, 31 Aug 2026 07:59:19 GMT
+etag: "6a953457-b4ba6"
+accept-ranges: bytes
+```
+
+2. 浏览器访问
+先设置静态解析:
+```bash
+echo '10.211.55.251 white-festa.local' >> /etc/hosts
+```
+浏览器访问结果:
+![HTTPS访问](https://images.white-festa.net/file/posts/metallb/1788241913569_11.png)
+如图，证书确实存在，只不过因为是自签名的ssl证书，所以会显示为insecure ssl
