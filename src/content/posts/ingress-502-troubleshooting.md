@@ -66,7 +66,7 @@ app-auth -> app-gateway -> app-core -> PostgreSQL database
 
 ### app-core 主业务假死
 
-由于 Pod 中没有可供调试的命令，在节点上通过抓取 `cni id` 后使用 `nsenter` 进入容器的网络空间进行调试
+由于 Pod 中没有可供调试的命令，在节点上通过抓取 `cni id` 后使用 `ip netns exec` 进入容器的网络空间进行调试
 
 #### 命令
 ```bash
@@ -97,11 +97,11 @@ ip netns exec <cni-id> bash
 
 ### Keepalive 超时时间不匹配可能引发连接复用竞态
 
-1. ingress 认为一条空闲连接在 **60s** 内都可复用。
-2. 后端自己的 keepalive 空闲超时更短，例如 Node.js `http.Server` 的 `keepAliveTimeout` 默认 **5s**。
-3. 连接空闲约 5s 后，后端主动关闭，发出 **FIN**。
-4. 如果 ingress 恰好在同一时刻（FIN 还没到达或还没被处理）从连接池取出这条连接发送请求，请求到达时后端 socket 已关闭，内核回 **RST**。
-5. ingress 读取响应失败，返回 **502** 给客户端。
+- ingress 认为一条空闲连接在 **60s** 内都可复用。
+- 后端自己的 keepalive 空闲超时更短，例如 Node.js `http.Server` 的 `keepAliveTimeout` 默认 **5s**。
+- 连接空闲约 5s 后，后端主动关闭，发出 **FIN**。
+- 如果 ingress 恰好在同一时刻（FIN 还没到达或还没被处理）从连接池取出这条连接发送请求，请求到达时后端 socket 已关闭，内核回 **RST**。
+- ingress 读取响应失败，返回 **502** 给客户端。
 
 典型报错示例：
 
