@@ -1,7 +1,7 @@
 ---
 title: "深入 etcd：Raft 共识协议中的选举机制: 角色、Quorum 与 Pre-Vote"
 published: 2026-03-23
-pinned: true
+pinned: false
 description: 从节点角色、Quorum 公式、选举流程、split vote 处理，到 Pre-Vote 预投票机制，系统梳理 etcd 在主节点宕机场景下的完整共识过程
 tags: [Kubernetes]
 category: 容器

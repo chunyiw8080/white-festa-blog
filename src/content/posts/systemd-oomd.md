@@ -1,7 +1,7 @@
 ---
 title: systemd-oomd 在 cgroup v2 下的触发机制与服务级 OOM 控制实践
 published: 2026-02-09
-pinned: true
+pinned: false
 description: 本文深入解析 systemd-oomd 的工作原理，说明其如何基于 PSI 与 cgroup v2 监控内存压力，并与传统内核 OOM 机制进行对比。通过 memory.high、slice 配置与服务示例，演示如何在生产环境中实现更精细的 OOM 控制。
 tags: [Linux Kernel, cgroups, 内存管理, systemd]
 category: Linux
