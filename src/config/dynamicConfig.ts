@@ -2,7 +2,7 @@ import type { DynamicConfig } from "@/types/dynamicConfig";
 
 export const dynamicConfig: DynamicConfig = {
 	// 页面标题，如果留空则使用 i18n 中的翻译
-	title: "说说",
+	title: "动态",
 
 	// 页面描述文本，如果留空则使用 i18n 中的翻译
 	description: "",

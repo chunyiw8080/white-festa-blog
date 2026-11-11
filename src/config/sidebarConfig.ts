@@ -14,11 +14,10 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			showOnPostPage: true,
 		},
 		{
-			type: "dynamic",
+			type: "music",
 			enable: true,
 			position: "top",
 			showOnPostPage: true,
-			specificConfig: { dynamic: { limit: 2 } },
 		},
 		// {
 		// 	type: "announcement",
@@ -44,11 +43,13 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 
 	rightComponents: [
 		{
-			type: "music",
+			type: "dynamic",
 			enable: true,
 			position: "top",
 			showOnPostPage: true,
+			specificConfig: { dynamic: { limit: 2 } },
 		},
+
 		{
 			type: "sidebarToc",
 			enable: true,
