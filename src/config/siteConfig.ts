@@ -96,7 +96,7 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		{
 			// 图标文件路径
-			src: "/assets/images/favicon.png",
+			src: "/assets/images/white-festa.png",
 			// 可选，指定主题 'light' | 'dark'
 			// theme: "light",
 			// 可选，图标大小
@@ -117,7 +117,7 @@ export const siteConfig: SiteConfig = {
 		// 使用 Astro 图标库时不需要设置 valueDark，图标会自动跟随主题亮暗色切换
 		logo: {
 			type: "image",
-			value: "/assets/images/site-icon-512.webp",
+			value: "/assets/images/white-festa.png",
 			alt: "White Festa",
 		},
 		// 导航栏标题
